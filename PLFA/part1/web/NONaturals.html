@@ -21,7 +21,107 @@
   <body for="html-export">
     <div class="crossnote markdown-preview">
     <html><head></head><body><div>
+<link rel="stylesheet" href="Agda.css">
 <h1 id="自然数" ebook-toc-level-1="" heading="自然数 ">自然数 </h1>
+
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#自然数" class="md-toc-link"><p>自然数</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#自然数---归纳数据类型-inductive-datatype" class="md-toc-link">
+            <p>自然数 -- 归纳数据类型 (Inductive Datatype)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#编译指令" class="md-toc-link">
+            <p>编译指令</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#模块导入" class="md-toc-link">
+            <p>模块导入</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#自然数的运算---递归函数" class="md-toc-link"><p>自然数的运算 -- 递归函数</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#加法" class="md-toc-link">
+            <p>加法</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#乘法" class="md-toc-link">
+            <p>乘法</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#乘方" class="md-toc-link">
+            <p>乘方</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#饱和减法" class="md-toc-link">
+            <p>饱和减法</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#优先级" class="md-toc-link">
+            <p>优先级</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#柯里化" class="md-toc-link">
+            <p>柯里化</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#更多编译指令" class="md-toc-link">
+            <p>更多编译指令</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#标准库" class="md-toc-link">
+            <p>标准库</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#习题参考" class="md-toc-link"><p>习题参考</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#练习seven实践" class="md-toc-link">
+            <p>练习<code>seven</code>(实践)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#练习-example实践" class="md-toc-link">
+            <p>练习<code>+-example</code>(实践)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#练习-example实践-1" class="md-toc-link">
+            <p>练习<code>*-example</code>(实践)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#练习__推荐" class="md-toc-link">
+            <p>练习<code>_^_</code>(推荐)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#练习-example1和-example2推荐" class="md-toc-link">
+            <p>练习<code>∸-example₁</code>和<code>∸-example₂</code>(推荐)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#练习bin拓展" class="md-toc-link">
+            <p>练习<code>Bin</code>(拓展)</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    
+</div>
 <pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>本章使用的 Unicode 符号：
     ℕ  U+2115  双线体大写 N (\bN)
     →  U+2192  右箭头 (\to, \r, \-&gt;)
@@ -44,16 +144,15 @@ suc m : ℕ
 <li>起始步骤(Base Case): <code>zero</code> 是一个自然数</li>
 <li>归纳步骤(Inductive Case): 如果<code>m</code>是一个自然数，那么<code>suc m</code>也是自然数</li>
 </ul>
-<p>推导规则包含写在水平线上的零条或者多条判断(Judgement)，称为假设(Hypothesis);以及写在直线下的一条判断，称为结论(Conclusion).</p>
+<p>推导规则包含写在水平线上的零条或者多条 <em><strong>判断(Judgement)</strong></em>，称为 <em><strong>假设(Hypothesis)</strong></em>;以及写在直线下的一条判断，称为 <em><strong>结论(Conclusion)</strong></em> 。</p>
 <p>推导规则可以使用Agda写出。</p>
-<pre class="Agda"> 
-<a id="579" class="Keyword" href="./">data</a> <a id="ℕ" href="./"></a><a id="584" href="./NONaturals.html#584" class="Datatype">ℕ</a> <a id="586" class="Symbol" href="./">:</a> <a id="588" href="./Agda.Primitive.html#388" class="Primitive">Set</a> <a id="592" class="Keyword" href="./">where</a> 
-    <a id="ℕ.zero" href="./"></a><a id="603" href="./NONaturals.html#603" class="InductiveConstructor">zero</a> <a id="608" class="Symbol" href="./">:</a> <a id="610" href="./NONaturals.html#584" class="Datatype">ℕ</a>
-    <a id="ℕ.suc" href="./"></a><a id="616" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="620" class="Symbol" href="./">:</a> <a id="622" href="./NONaturals.html#584" class="Datatype">ℕ</a> <a id="624" class="Symbol" href="./">→</a> <a id="626" href="./NONaturals.html#584" class="Datatype">ℕ</a> 
+<pre class="Agda"><a id="606" class="Keyword" href="./">data</a> <a id="ℕ" href="./"></a><a id="611" href="./NONaturals.html#611" class="Datatype">ℕ</a> <a id="613" class="Symbol" href="./">:</a> <a id="615" href="./Agda.Primitive.html#388" class="Primitive">Set</a> <a id="619" class="Keyword" href="./">where</a> 
+    <a id="ℕ.zero" href="./"></a><a id="630" href="./NONaturals.html#630" class="InductiveConstructor">zero</a> <a id="635" class="Symbol" href="./">:</a> <a id="637" href="./NONaturals.html#611" class="Datatype">ℕ</a>
+    <a id="ℕ.suc" href="./"></a><a id="643" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="647" class="Symbol" href="./">:</a> <a id="649" href="./NONaturals.html#611" class="Datatype">ℕ</a> <a id="651" class="Symbol" href="./">→</a> <a id="653" href="./NONaturals.html#611" class="Datatype">ℕ</a> 
 </pre>
 <p>其中关键字<code>data</code>用于声明归纳定义，<code>ℕ</code>是定义的新数据类型的名称，它是一个<code>Set</code>(类型)，关键字<code>where</code>用于分隔数据类型声明和构造子声明。</p>
-<p><code>zero</code>和<code>suc</code>是<code>ℕ</code>的两个构造子(Successor)，其中<code>zero</code>表示零，<code>suc</code>表示(任意自然数的)后继。</p>
-<p>每个构造子后都由冒号以及相应的类型签名(Signature)跟随，<code>zero</code>作为自然数零，类型为<code>ℕ</code>，而<code>suc</code>表示后继，接受一个自然数作为参数，并返回另一个自然数，因此类型签名为<code>ℕ → ℕ</code>。</p>
+<p><code>zero</code>和<code>suc</code>是<code>ℕ</code>的两个 <em><strong>构造子(Successor)</strong></em> ，其中<code>zero</code>表示零，<code>suc</code>表示(任意自然数的)后继。</p>
+<p>每个构造子后都由冒号以及相应的 <em><strong>类型签名(Signature)</strong></em> 跟随，<code>zero</code>作为自然数零，类型为<code>ℕ</code>，而<code>suc</code>表示后继，接受一个自然数作为参数，并返回另一个自然数，因此类型签名为<code>ℕ → ℕ</code>。</p>
 <p>以上两条推导规则给出了产生自然数的唯一方法，实际上可以验证它满足皮亚诺公理，后续将使用Agda对其进行验证。</p>
 <blockquote>
 <p>皮亚诺公理：<br>
@@ -66,72 +165,67 @@ suc m : ℕ
 </ol>
 </blockquote>
 <p>使用Agda的自然数定义，可以生成自然数的实例，以<code>7</code>为例：</p>
-<pre class="Agda"><a id="seven" href="./"></a><a id="1264" href="./NONaturals.html#1264" class="Function">seven</a> <a id="1270" class="Symbol" href="./">:</a> <a id="1272" href="./NONaturals.html#584" class="Datatype">ℕ</a> 
-<a id="1275" href="./NONaturals.html#1264" class="Function">seven</a> <a id="1281" class="Symbol" href="./">=</a> <a id="1283" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="1287" class="Symbol" href="./">(</a><a id="1288" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="1292" class="Symbol" href="./">(</a><a id="1293" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="1297" class="Symbol" href="./">(</a><a id="1298" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="1302" class="Symbol" href="./">(</a><a id="1303" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="1307" class="Symbol" href="./">(</a><a id="1308" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="1312" class="Symbol" href="./">(</a><a id="1313" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="1317" href="./NONaturals.html#603" class="InductiveConstructor">zero</a><a id="1321" class="Symbol" href="./">))))))</a>
+<pre class="Agda"><a id="seven" href="./"></a><a id="1307" href="./NONaturals.html#1307" class="Function">seven</a> <a id="1313" class="Symbol" href="./">:</a> <a id="1315" href="./NONaturals.html#611" class="Datatype">ℕ</a> 
+<a id="1318" href="./NONaturals.html#1307" class="Function">seven</a> <a id="1324" class="Symbol" href="./">=</a> <a id="1326" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="1330" class="Symbol" href="./">(</a><a id="1331" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="1335" class="Symbol" href="./">(</a><a id="1336" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="1340" class="Symbol" href="./">(</a><a id="1341" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="1345" class="Symbol" href="./">(</a><a id="1346" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="1350" class="Symbol" href="./">(</a><a id="1351" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="1355" class="Symbol" href="./">(</a><a id="1356" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="1360" href="./NONaturals.html#630" class="InductiveConstructor">zero</a><a id="1364" class="Symbol" href="./">))))))</a>
 </pre>
 <h2 id="编译指令" ebook-toc-level-2="" heading="编译指令 ">编译指令 </h2>
 <p>在Agda中的注释(Comment)方法与Haskell相同， 即<code>--</code>作为单行注释，<code>{- ... -}</code>作为多行注释。在多行注释中，一种例外的注释形式会被识别为编译指令(Pragma) -- <code>{-# ... #-}</code>。</p>
-<pre class="Agda"> 
-<a id="1469" class="Symbol" href="./">{-#</a> <a id="1473" class="Keyword" href="./">BUILTIN</a> <a id="1481" class="Keyword" href="./">NATURAL</a> <a id="1489" href="./NONaturals.html#584" class="Datatype">ℕ</a> <a id="1491" class="Symbol" href="./">#-}</a>
+<pre class="Agda"><a id="1510" class="Symbol" href="./">{-#</a> <a id="1514" class="Keyword" href="./">BUILTIN</a> <a id="1522" class="Keyword" href="./">NATURAL</a> <a id="1530" href="./NONaturals.html#611" class="Datatype">ℕ</a> <a id="1532" class="Symbol" href="./">#-}</a>
 </pre>
 <p>该指令指示Agda数据类型<code>ℕ</code>与自然数对应，因此用户可以将<code>ℕ</code>类型简写为<code>0,1,2,3, ...</code>。</p>
 <h2 id="模块导入" ebook-toc-level-2="" heading="模块导入 ">模块导入 </h2>
 <p>在引入自然数定义之后，就可以进行一些有关自然数事实的推理。在此之前，需要从Agda标准库中导入相等性(Equality)的定义以及用于等式推理的记法：</p>
-<pre class="Agda"> 
-<a id="1653" class="Keyword" href="./">import</a> <a id="1660" href="./Relation.Binary.PropositionalEquality.html" class="Module">Relation.Binary.PropositionalEquality</a> <a id="1698" class="Symbol" href="./">as</a> <a id="1701" class="Module" href="./">Eq</a> 
-<a id="1705" class="Keyword" href="./">open</a> <a id="1710" href="./Relation.Binary.PropositionalEquality.html" class="Module">Eq</a> <a id="1713" class="Keyword" href="./">using</a> <a id="1719" class="Symbol" href="./">(</a><a id="1720" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">_≡_</a><a id="1723" class="Symbol" href="./">;</a><a id="1724" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a><a id="1728" class="Symbol" href="./">)</a>
-<a id="1730" class="Keyword" href="./">open</a> <a id="1735" href="./Relation.Binary.PropositionalEquality.Core.html#2717" class="Module">Eq.≡-Reasoning</a> <a id="1750" class="Keyword" href="./">using</a> <a id="1756" class="Symbol" href="./">(</a><a id="1757" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin_</a><a id="1763" class="Symbol" href="./">;</a><a id="1764" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">_≡⟨⟩_</a><a id="1769" class="Symbol" href="./">;</a><a id="1770" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">_∎</a><a id="1772" class="Symbol" href="./">)</a>
+<pre class="Agda"><a id="1692" class="Keyword" href="./">import</a> <a id="1699" href="./Relation.Binary.PropositionalEquality.html" class="Module">Relation.Binary.PropositionalEquality</a> <a id="1737" class="Symbol" href="./">as</a> <a id="1740" class="Module" href="./">Eq</a> 
+<a id="1744" class="Keyword" href="./">open</a> <a id="1749" href="./Relation.Binary.PropositionalEquality.html" class="Module">Eq</a> <a id="1752" class="Keyword" href="./">using</a> <a id="1758" class="Symbol" href="./">(</a><a id="1759" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">_≡_</a><a id="1762" class="Symbol" href="./">;</a><a id="1763" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a><a id="1767" class="Symbol" href="./">)</a>
+<a id="1769" class="Keyword" href="./">open</a> <a id="1774" href="./Relation.Binary.PropositionalEquality.Core.html#2717" class="Module">Eq.≡-Reasoning</a> <a id="1789" class="Keyword" href="./">using</a> <a id="1795" class="Symbol" href="./">(</a><a id="1796" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin_</a><a id="1802" class="Symbol" href="./">;</a><a id="1803" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">_≡⟨⟩_</a><a id="1808" class="Symbol" href="./">;</a><a id="1809" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">_∎</a><a id="1811" class="Symbol" href="./">)</a>
 </pre>
-<p>上述代码中，首行将标准库中定义了相等性的模块导入到了当前作用域(Scope),并命名为<code>Eq</code>。第二行打开了<code>Eq</code>模块，并使用<code>using</code>从句将相等运算符<code>_≡_</code>和两个项相等的证据<code>refl</code>添加到当前作用域。第三行打开了<code>Eq</code>的子模块<code>≡-Reasoning</code>(用于等价关系推理)，并将<code>begin_</code>，<code>_≡⟨⟩_</code>,<code>_∎</code>添加到当前作用域，它们分别表示“证明开始”，“等价于”，“证明结束”。</p>
-<p>应当注意到，导入的名称中大量使用了下划线。在Agda中，使用下划线标注项(Term)相对于运算符的位置。例如<code>_≡_</code>为中缀运算符，而<code>begin_</code>为前缀运算符(运算符写在前),<code>_∎</code>为后缀运算符(运算符写在后)。</p>
+<p>上述代码中，首行将标准库中定义了相等性的模块导入到了当前 <em><strong>作用域(Scope)</strong></em> ,并命名为<code>Eq</code>。第二行打开了<code>Eq</code>模块，并使用<code>using</code>从句将相等运算符<code>_≡_</code>和两个项相等的证据<code>refl</code>添加到当前作用域。第三行打开了<code>Eq</code>的子模块<code>≡-Reasoning</code>(用于等价关系推理)，并将<code>begin_</code>，<code>_≡⟨⟩_</code>,<code>_∎</code>添加到当前作用域，它们分别表示“证明开始”，“等价于”，“证明结束”。</p>
+<p>应当注意到，导入的名称中大量使用了下划线。在Agda中，使用下划线标注 <em><strong>项(Term)</strong></em> 相对于运算符的位置。例如<code>_≡_</code>为中缀运算符，而<code>begin_</code>为前缀运算符(运算符写在前),<code>_∎</code>为后缀运算符(运算符写在后)。</p>
 <blockquote>
 <p>注意：括号与分号不允许出现在名称中，因此我们在<code>using</code>列表中无需额外空格消除歧义。</p>
 </blockquote>
 <h2 id="自然数的运算---递归函数" ebook-toc-level-2="" heading="自然数的运算 -- 递归函数 ">自然数的运算 -- 递归函数 </h2>
-<p>使用递归(Recursion)可以很容易定义自然数的相关运算。</p>
+<p>使用 <em><strong>递归(Recursion)</strong></em> 可以很容易定义自然数的相关运算。</p>
 <h3 id="加法" ebook-toc-level-3="" heading="加法 ">加法 </h3>
 <p>加法使用递归可以定义为两个规则：</p>
 <pre class="language-text">0 + n ≡ n 
 (1 + m) ≡ 1 + (m + n)
 </pre>
 <p>使用Agda编写如下：</p>
-<pre class="Agda"> 
-<a id="_+_" href="./"></a><a id="2290" href="./NONaturals.html#2290" class="Function Operator">_+_</a> <a id="2294" class="Symbol" href="./">:</a> <a id="2296" href="./NONaturals.html#584" class="Datatype">ℕ</a> <a id="2298" class="Symbol" href="./">→</a> <a id="2300" href="./NONaturals.html#584" class="Datatype">ℕ</a> <a id="2302" class="Symbol" href="./">→</a> <a id="2304" href="./NONaturals.html#584" class="Datatype">ℕ</a> 
-<a id="2307" href="./NONaturals.html#603" class="InductiveConstructor">zero</a> <a id="2312" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="2314" href="./NONaturals.html#2314" class="Bound">n</a> <a id="2316" class="Symbol" href="./">=</a> <a id="2318" href="./NONaturals.html#2314" class="Bound">n</a>
-<a id="2320" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2324" href="./NONaturals.html#2324" class="Bound">m</a> <a id="2326" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="2328" href="./NONaturals.html#2328" class="Bound">n</a> <a id="2330" class="Symbol" href="./">=</a> <a id="2332" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2336" class="Symbol" href="./">(</a><a id="2337" href="./NONaturals.html#2324" class="Bound">m</a> <a id="2339" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="2341" href="./NONaturals.html#2328" class="Bound">n</a><a id="2342" class="Symbol" href="./">)</a> 
+<pre class="Agda"><a id="_+_" href="./"></a><a id="2351" href="./NONaturals.html#2351" class="Function Operator">_+_</a> <a id="2355" class="Symbol" href="./">:</a> <a id="2357" href="./NONaturals.html#611" class="Datatype">ℕ</a> <a id="2359" class="Symbol" href="./">→</a> <a id="2361" href="./NONaturals.html#611" class="Datatype">ℕ</a> <a id="2363" class="Symbol" href="./">→</a> <a id="2365" href="./NONaturals.html#611" class="Datatype">ℕ</a> 
+<a id="2368" href="./NONaturals.html#630" class="InductiveConstructor">zero</a> <a id="2373" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="2375" href="./NONaturals.html#2375" class="Bound">n</a> <a id="2377" class="Symbol" href="./">=</a> <a id="2379" href="./NONaturals.html#2375" class="Bound">n</a>
+<a id="2381" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2385" href="./NONaturals.html#2385" class="Bound">m</a> <a id="2387" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="2389" href="./NONaturals.html#2389" class="Bound">n</a> <a id="2391" class="Symbol" href="./">=</a> <a id="2393" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2397" class="Symbol" href="./">(</a><a id="2398" href="./NONaturals.html#2385" class="Bound">m</a> <a id="2400" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="2402" href="./NONaturals.html#2389" class="Bound">n</a><a id="2403" class="Symbol" href="./">)</a> 
 </pre>
 <blockquote>
 <p>注意: 我们使用等号<code>=</code>表示定义，用<code>≡</code>表示相等。</p>
 </blockquote>
 <p>加法作为一个中缀运算符，接受两个自然数并返回运算结果，因此类型签名为<code>ℕ → ℕ → ℕ</code>。上述定义包含了两个步骤 -- 起始步骤和归纳步骤，与自然数的定义相对应。</p>
 <p>起始步骤表明零加任意自然数结果仍然为这个自然数；归纳步骤表明一个数的后继与另一个数相加，结果为这两个数的和的后继。</p>
-<p>在加法定义中，构造子出现在等号左侧，我们称为模式匹配(Pattern Matching)。</p>
+<p>在加法定义中，构造子出现在等号左侧，我们称为 <em><strong>模式匹配(Pattern Matching)</strong></em> 。</p>
 <p>另外虽然加法定义是递归的，但是较大的数相加是用较小的数相加定义的，这样的定义被称为<em><strong>良基的(Well founded)</strong></em>。</p>
 <p>下面我们选择加法的实例进行证明，以二加三为例:</p>
-<pre class="Agda">  
-<a id="2675" href="./NONaturals.html#2675" class="Function">_</a> <a id="2677" class="Symbol" href="./">:</a> <a id="2679" class="Number" href="./">2</a> <a id="2681" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="2683" class="Number" href="./">3</a> <a id="2685" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="2687" class="Number" href="./">5</a> 
-<a id="2690" class="Symbol" href="./">_</a> <a id="2692" class="Symbol" href="./">=</a> <a id="2694" class="Comment" href="./">-- 根据编译指令，证明过程的等价式子可以替换为注释内容</a>
-    <a id="2727" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin</a> 
-        <a id="2742" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2746" class="Symbol" href="./">(</a><a id="2747" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2751" href="./NONaturals.html#603" class="InductiveConstructor">zero</a><a id="2755" class="Symbol" href="./">)</a> <a id="2757" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="2759" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2763" class="Symbol" href="./">(</a><a id="2764" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2768" class="Symbol" href="./">(</a><a id="2769" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2773" href="./NONaturals.html#603" class="InductiveConstructor">zero</a><a id="2777" class="Symbol" href="./">))</a> <a id="2780" class="Comment" href="./">-- 2 + 3 </a>
-    <a id="2794" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="2807" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2811" href="./NONaturals.html#603" class="InductiveConstructor">zero</a> <a id="2816" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="2818" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2822" class="Symbol" href="./">(</a><a id="2823" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2827" class="Symbol" href="./">(</a><a id="2828" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2832" class="Symbol" href="./">(</a><a id="2833" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2837" href="./NONaturals.html#603" class="InductiveConstructor">zero</a><a id="2841" class="Symbol" href="./">)))</a> <a id="2845" class="Comment" href="./">-- 1 + 4</a>
-    <a id="2858" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="2871" href="./NONaturals.html#603" class="InductiveConstructor">zero</a> <a id="2876" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="2878" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2882" class="Symbol" href="./">(</a><a id="2883" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2887" class="Symbol" href="./">(</a><a id="2888" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2892" class="Symbol" href="./">(</a><a id="2893" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2897" class="Symbol" href="./">(</a><a id="2898" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2902" href="./NONaturals.html#603" class="InductiveConstructor">zero</a><a id="2906" class="Symbol" href="./">))))</a> <a id="2911" class="Comment" href="./">-- 0 + 5</a>
+<pre class="Agda"><a id="2741" href="./NONaturals.html#2741" class="Function">_</a> <a id="2743" class="Symbol" href="./">:</a> <a id="2745" class="Number" href="./">2</a> <a id="2747" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="2749" class="Number" href="./">3</a> <a id="2751" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="2753" class="Number" href="./">5</a> 
+<a id="2756" class="Symbol" href="./">_</a> <a id="2758" class="Symbol" href="./">=</a> <a id="2760" class="Comment" href="./">-- 根据编译指令，证明过程的等价式子可以替换为注释内容</a>
+    <a id="2793" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin</a> 
+        <a id="2808" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2812" class="Symbol" href="./">(</a><a id="2813" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2817" href="./NONaturals.html#630" class="InductiveConstructor">zero</a><a id="2821" class="Symbol" href="./">)</a> <a id="2823" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="2825" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2829" class="Symbol" href="./">(</a><a id="2830" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2834" class="Symbol" href="./">(</a><a id="2835" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2839" href="./NONaturals.html#630" class="InductiveConstructor">zero</a><a id="2843" class="Symbol" href="./">))</a> <a id="2846" class="Comment" href="./">-- 2 + 3 </a>
+    <a id="2860" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="2873" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2877" href="./NONaturals.html#630" class="InductiveConstructor">zero</a> <a id="2882" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="2884" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2888" class="Symbol" href="./">(</a><a id="2889" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2893" class="Symbol" href="./">(</a><a id="2894" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2898" class="Symbol" href="./">(</a><a id="2899" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2903" href="./NONaturals.html#630" class="InductiveConstructor">zero</a><a id="2907" class="Symbol" href="./">)))</a> <a id="2911" class="Comment" href="./">-- 1 + 4</a>
     <a id="2924" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="2937" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2941" class="Symbol" href="./">(</a><a id="2942" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2946" class="Symbol" href="./">(</a><a id="2947" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2951" class="Symbol" href="./">(</a><a id="2952" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2956" class="Symbol" href="./">(</a><a id="2957" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="2961" href="./NONaturals.html#603" class="InductiveConstructor">zero</a><a id="2965" class="Symbol" href="./">))))</a> <a id="2970" class="Comment" href="./">-- 5</a>
-    <a id="2979" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">∎</a> 
+        <a id="2937" href="./NONaturals.html#630" class="InductiveConstructor">zero</a> <a id="2942" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="2944" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2948" class="Symbol" href="./">(</a><a id="2949" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2953" class="Symbol" href="./">(</a><a id="2954" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2958" class="Symbol" href="./">(</a><a id="2959" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2963" class="Symbol" href="./">(</a><a id="2964" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="2968" href="./NONaturals.html#630" class="InductiveConstructor">zero</a><a id="2972" class="Symbol" href="./">))))</a> <a id="2977" class="Comment" href="./">-- 0 + 5</a>
+    <a id="2990" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="3003" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="3007" class="Symbol" href="./">(</a><a id="3008" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="3012" class="Symbol" href="./">(</a><a id="3013" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="3017" class="Symbol" href="./">(</a><a id="3018" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="3022" class="Symbol" href="./">(</a><a id="3023" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="3027" href="./NONaturals.html#630" class="InductiveConstructor">zero</a><a id="3031" class="Symbol" href="./">))))</a> <a id="3036" class="Comment" href="./">-- 5</a>
+    <a id="3045" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">∎</a> 
 </pre>
-<p>整个证明由一个类型签名（首行）和一个提供对应类型的项的绑定(Binding)组成。</p>
+<p>整个证明由一个类型签名（首行）和一个提供对应类型的 <em><strong>项的绑定(Binding)</strong></em> 组成。</p>
 <p>在这个证明过程中，首行使用了虚设名称<code>_</code>,虚设名称允许用户重复使用，在举例时很便利，除此之外所有名称都只能在模块中定义一次。虚设名称后面为类型签名，亦待证明的命题<code>2 + 3 ≡ 5</code>(这是柯里-霍华德同构，后面章节会阐述)。</p>
-<p>在给出类型签名（待证明的命题）后，程序给出了相应类型的项进行绑定，亦命题的证明或<em><strong>证据(Evidence)</strong></em>(这也是柯里-霍华德同构)。</p>
+<p>在给出类型签名（待证明的命题）后，程序给出了相应类型的项进行绑定，亦命题的证明或 <em><strong>证据(Evidence)</strong></em> (这也是柯里-霍华德同构)。</p>
 <p>以数学证明的视角，该证明由等式链组成，等式链由<code>begin</code>开始，以<code>∎</code>结束，中间由一系列<code>≡⟨⟩</code>分隔的向组成。</p>
 <blockquote>
 <p>实际上, <code>begin_</code>，<code>_∎</code>，<code>≡⟨⟩</code>只是作为运算符的存在，后面的章节将会详细解析这部分内容。</p>
 </blockquote>
 <p>回到加法的定义，不难看出，不断使用递归定义，可以直接计算出<code>2 + 3</code>的结果，因此实际上Agda可以直接化简<code>2 + 3</code>为<code>5</code>,即命题变成了<code>5 ≡ 5</code>。我们可以使用<code>refl</code>立刻得出这个显然的结果。</p>
-<pre class="Agda"> 
-<a id="3454" href="./NONaturals.html#3454" class="Function">_</a> <a id="3456" class="Symbol" href="./">:</a> <a id="3458" class="Number" href="./">2</a> <a id="3460" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="3462" class="Number" href="./">3</a> <a id="3464" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="3466" class="Number" href="./">5</a> 
-<a id="3469" class="Symbol" href="./">_</a> <a id="3471" class="Symbol" href="./">=</a> <a id="3473" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<pre class="Agda"><a id="3528" href="./NONaturals.html#3528" class="Function">_</a> <a id="3530" class="Symbol" href="./">:</a> <a id="3532" class="Number" href="./">2</a> <a id="3534" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="3536" class="Number" href="./">3</a> <a id="3538" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="3540" class="Number" href="./">5</a> 
+<a id="3543" class="Symbol" href="./">_</a> <a id="3545" class="Symbol" href="./">=</a> <a id="3547" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 </pre>
 <p>一个值等于其自身的证据写作<code>refl</code>。</p>
 <blockquote>
@@ -143,29 +237,27 @@ suc m : ℕ
 (1 + m) * n = n + (m * n) 
 </pre>
 <p>使用Agda编写如下：</p>
-<pre class="Agda"> 
-<a id="_*_" href="./"></a><a id="3635" href="./NONaturals.html#3635" class="Function Operator">_*_</a> <a id="3639" class="Symbol" href="./">:</a> <a id="3641" href="./NONaturals.html#584" class="Datatype">ℕ</a> <a id="3643" class="Symbol" href="./">→</a> <a id="3645" href="./NONaturals.html#584" class="Datatype">ℕ</a> <a id="3647" class="Symbol" href="./">→</a> <a id="3649" href="./NONaturals.html#584" class="Datatype">ℕ</a> 
-<a id="3652" href="./NONaturals.html#603" class="InductiveConstructor">zero</a> <a id="3657" href="./NONaturals.html#3635" class="Function Operator">*</a> <a id="3659" href="./NONaturals.html#3659" class="Bound">n</a> <a id="3661" class="Symbol" href="./">=</a> <a id="3663" href="./NONaturals.html#603" class="InductiveConstructor">zero</a> 
-<a id="3669" class="Symbol" href="./">(</a><a id="3670" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="3674" href="./NONaturals.html#3674" class="Bound">m</a><a id="3675" class="Symbol" href="./">)</a> <a id="3677" href="./NONaturals.html#3635" class="Function Operator">*</a> <a id="3679" href="./NONaturals.html#3679" class="Bound">n</a> <a id="3681" class="Symbol" href="./">=</a> <a id="3683" href="./NONaturals.html#3679" class="Bound">n</a> <a id="3685" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="3687" class="Symbol" href="./">(</a><a id="3688" href="./NONaturals.html#3674" class="Bound">m</a> <a id="3690" href="./NONaturals.html#3635" class="Function Operator">*</a> <a id="3692" href="./NONaturals.html#3679" class="Bound">n</a><a id="3693" class="Symbol" href="./">)</a>
+<pre class="Agda"><a id="_*_" href="./"></a><a id="3707" href="./NONaturals.html#3707" class="Function Operator">_*_</a> <a id="3711" class="Symbol" href="./">:</a> <a id="3713" href="./NONaturals.html#611" class="Datatype">ℕ</a> <a id="3715" class="Symbol" href="./">→</a> <a id="3717" href="./NONaturals.html#611" class="Datatype">ℕ</a> <a id="3719" class="Symbol" href="./">→</a> <a id="3721" href="./NONaturals.html#611" class="Datatype">ℕ</a> 
+<a id="3724" href="./NONaturals.html#630" class="InductiveConstructor">zero</a> <a id="3729" href="./NONaturals.html#3707" class="Function Operator">*</a> <a id="3731" href="./NONaturals.html#3731" class="Bound">n</a> <a id="3733" class="Symbol" href="./">=</a> <a id="3735" href="./NONaturals.html#630" class="InductiveConstructor">zero</a> 
+<a id="3741" class="Symbol" href="./">(</a><a id="3742" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="3746" href="./NONaturals.html#3746" class="Bound">m</a><a id="3747" class="Symbol" href="./">)</a> <a id="3749" href="./NONaturals.html#3707" class="Function Operator">*</a> <a id="3751" href="./NONaturals.html#3751" class="Bound">n</a> <a id="3753" class="Symbol" href="./">=</a> <a id="3755" href="./NONaturals.html#3751" class="Bound">n</a> <a id="3757" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="3759" class="Symbol" href="./">(</a><a id="3760" href="./NONaturals.html#3746" class="Bound">m</a> <a id="3762" href="./NONaturals.html#3707" class="Function Operator">*</a> <a id="3764" href="./NONaturals.html#3751" class="Bound">n</a><a id="3765" class="Symbol" href="./">)</a>
 </pre>
 <p>不难看出，这个定义也是良基的，因为较大的数的相乘是用较小的数相乘定义的。</p>
 <p>以二乘三为示例：</p>
-<pre class="Agda"> 
-<a id="3760" href="./NONaturals.html#3760" class="Function">_</a> <a id="3762" class="Symbol" href="./">=</a> <a id="3764" class="Number" href="./">2</a> <a id="3766" href="./NONaturals.html#3635" class="Function Operator">*</a> <a id="3768" class="Number" href="./">3</a> <a id="3770" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="3772" class="Number" href="./">6</a> 
-<a id="3775" href="./NONaturals.html#3775" class="Function">_</a> <a id="3777" class="Symbol" href="./">=</a> 
-    <a id="3784" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin</a> 
-        <a id="3799" class="Number" href="./">2</a> <a id="3801" href="./NONaturals.html#3635" class="Function Operator">*</a> <a id="3803" class="Number" href="./">3</a> 
-    <a id="3810" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="3823" class="Number" href="./">3</a> <a id="3825" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="3827" class="Symbol" href="./">(</a><a id="3828" class="Number" href="./">1</a> <a id="3830" href="./NONaturals.html#3635" class="Function Operator">*</a> <a id="3832" class="Number" href="./">3</a><a id="3833" class="Symbol" href="./">)</a> 
-    <a id="3840" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="3853" class="Number" href="./">3</a> <a id="3855" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="3857" class="Symbol" href="./">(</a><a id="3858" class="Number" href="./">3</a> <a id="3860" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="3862" class="Symbol" href="./">(</a><a id="3863" class="Number" href="./">0</a> <a id="3865" href="./NONaturals.html#3635" class="Function Operator">*</a> <a id="3867" class="Number" href="./">3</a><a id="3868" class="Symbol" href="./">))</a> 
-    <a id="3876" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="3889" class="Number" href="./">3</a> <a id="3891" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="3893" class="Symbol" href="./">(</a><a id="3894" class="Number" href="./">3</a> <a id="3896" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="3898" class="Number" href="./">0</a><a id="3899" class="Symbol" href="./">)</a>
-    <a id="3905" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="3918" class="Number" href="./">3</a> <a id="3920" href="./NONaturals.html#2290" class="Function Operator">+</a> <a id="3922" class="Number" href="./">3</a> 
-    <a id="3929" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="3942" class="Number" href="./">6</a>
-    <a id="3948" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">∎</a>
+<pre class="Agda"><a id="3830" href="./NONaturals.html#3830" class="Function">_</a> <a id="3832" class="Symbol" href="./">=</a> <a id="3834" class="Number" href="./">2</a> <a id="3836" href="./NONaturals.html#3707" class="Function Operator">*</a> <a id="3838" class="Number" href="./">3</a> <a id="3840" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="3842" class="Number" href="./">6</a> 
+<a id="3845" href="./NONaturals.html#3845" class="Function">_</a> <a id="3847" class="Symbol" href="./">=</a> 
+    <a id="3854" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin</a> 
+        <a id="3869" class="Number" href="./">2</a> <a id="3871" href="./NONaturals.html#3707" class="Function Operator">*</a> <a id="3873" class="Number" href="./">3</a> 
+    <a id="3880" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="3893" class="Number" href="./">3</a> <a id="3895" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="3897" class="Symbol" href="./">(</a><a id="3898" class="Number" href="./">1</a> <a id="3900" href="./NONaturals.html#3707" class="Function Operator">*</a> <a id="3902" class="Number" href="./">3</a><a id="3903" class="Symbol" href="./">)</a> 
+    <a id="3910" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="3923" class="Number" href="./">3</a> <a id="3925" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="3927" class="Symbol" href="./">(</a><a id="3928" class="Number" href="./">3</a> <a id="3930" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="3932" class="Symbol" href="./">(</a><a id="3933" class="Number" href="./">0</a> <a id="3935" href="./NONaturals.html#3707" class="Function Operator">*</a> <a id="3937" class="Number" href="./">3</a><a id="3938" class="Symbol" href="./">))</a> 
+    <a id="3946" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="3959" class="Number" href="./">3</a> <a id="3961" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="3963" class="Symbol" href="./">(</a><a id="3964" class="Number" href="./">3</a> <a id="3966" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="3968" class="Number" href="./">0</a><a id="3969" class="Symbol" href="./">)</a>
+    <a id="3975" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="3988" class="Number" href="./">3</a> <a id="3990" href="./NONaturals.html#2351" class="Function Operator">+</a> <a id="3992" class="Number" href="./">3</a> 
+    <a id="3999" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="4012" class="Number" href="./">6</a>
+    <a id="4018" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">∎</a>
 </pre>
 <h3 id="乘方" ebook-toc-level-3="" heading="乘方 ">乘方 </h3>
 <p>类似地，可以根据乘法递归定义乘方运算。</p>
@@ -173,18 +265,16 @@ suc m : ℕ
 m ^ (1 + n) ≡ m * (m ^ n)
 </pre>
 <p>使用Agda定义：</p>
-<pre class="Agda"> 
-<a id="_^_" href="./"></a><a id="4054" href="./NONaturals.html#4054" class="Function Operator">_^_</a> <a id="4058" class="Symbol" href="./">:</a> <a id="4060" href="./NONaturals.html#584" class="Datatype">ℕ</a> <a id="4062" class="Symbol" href="./">→</a> <a id="4064" href="./NONaturals.html#584" class="Datatype">ℕ</a> <a id="4066" class="Symbol" href="./">→</a> <a id="4068" href="./NONaturals.html#584" class="Datatype">ℕ</a> 
-<a id="4071" href="./NONaturals.html#4071" class="Bound">m</a> <a id="4073" href="./NONaturals.html#4054" class="Function Operator">^</a> <a id="4075" href="./NONaturals.html#603" class="InductiveConstructor">zero</a> <a id="4080" class="Symbol" href="./">=</a> <a id="4082" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="4086" href="./NONaturals.html#603" class="InductiveConstructor">zero</a> 
-<a id="4092" href="./NONaturals.html#4092" class="Bound">m</a> <a id="4094" href="./NONaturals.html#4054" class="Function Operator">^</a> <a id="4096" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="4100" href="./NONaturals.html#4100" class="Bound">n</a> <a id="4102" class="Symbol" href="./">=</a> <a id="4104" href="./NONaturals.html#4092" class="Bound">m</a> <a id="4106" href="./NONaturals.html#3635" class="Function Operator">*</a> <a id="4108" class="Symbol" href="./">(</a><a id="4109" href="./NONaturals.html#4092" class="Bound">m</a> <a id="4111" href="./NONaturals.html#4054" class="Function Operator">^</a> <a id="4113" href="./NONaturals.html#4100" class="Bound">n</a><a id="4114" class="Symbol" href="./">)</a>
+<pre class="Agda"><a id="_^_" href="./"></a><a id="4122" href="./NONaturals.html#4122" class="Function Operator">_^_</a> <a id="4126" class="Symbol" href="./">:</a> <a id="4128" href="./NONaturals.html#611" class="Datatype">ℕ</a> <a id="4130" class="Symbol" href="./">→</a> <a id="4132" href="./NONaturals.html#611" class="Datatype">ℕ</a> <a id="4134" class="Symbol" href="./">→</a> <a id="4136" href="./NONaturals.html#611" class="Datatype">ℕ</a> 
+<a id="4139" href="./NONaturals.html#4139" class="Bound">m</a> <a id="4141" href="./NONaturals.html#4122" class="Function Operator">^</a> <a id="4143" href="./NONaturals.html#630" class="InductiveConstructor">zero</a> <a id="4148" class="Symbol" href="./">=</a> <a id="4150" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="4154" href="./NONaturals.html#630" class="InductiveConstructor">zero</a> 
+<a id="4160" href="./NONaturals.html#4160" class="Bound">m</a> <a id="4162" href="./NONaturals.html#4122" class="Function Operator">^</a> <a id="4164" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="4168" href="./NONaturals.html#4168" class="Bound">n</a> <a id="4170" class="Symbol" href="./">=</a> <a id="4172" href="./NONaturals.html#4160" class="Bound">m</a> <a id="4174" href="./NONaturals.html#3707" class="Function Operator">*</a> <a id="4176" class="Symbol" href="./">(</a><a id="4177" href="./NONaturals.html#4160" class="Bound">m</a> <a id="4179" href="./NONaturals.html#4122" class="Function Operator">^</a> <a id="4181" href="./NONaturals.html#4168" class="Bound">n</a><a id="4182" class="Symbol" href="./">)</a>
 </pre>
 <h3 id="饱和减法" ebook-toc-level-3="" heading="饱和减法 ">饱和减法 </h3>
-<p>自然数中不包含负数，因此如果被减数比减数小，为了保证运算的封闭性，我们将其取零。这种针对自然数的减法变种称为<em><strong>饱和减法(Monus)</strong></em>。</p>
-<pre class="Agda"> 
-<a id="_∸_" href="./"></a><a id="4216" href="./NONaturals.html#4216" class="Function Operator">_∸_</a> <a id="4220" class="Symbol" href="./">:</a> <a id="4222" href="./NONaturals.html#584" class="Datatype">ℕ</a> <a id="4224" class="Symbol" href="./">→</a> <a id="4226" href="./NONaturals.html#584" class="Datatype">ℕ</a> <a id="4228" class="Symbol" href="./">→</a> <a id="4230" href="./NONaturals.html#584" class="Datatype">ℕ</a> 
-<a id="4233" href="./NONaturals.html#4233" class="Bound">m</a> <a id="4235" href="./NONaturals.html#4216" class="Function Operator">∸</a> <a id="4237" href="./NONaturals.html#603" class="InductiveConstructor">zero</a> <a id="4242" class="Symbol" href="./">=</a> <a id="4244" href="./NONaturals.html#4233" class="Bound">m</a> 
-<a id="4247" href="./NONaturals.html#603" class="InductiveConstructor">zero</a> <a id="4252" href="./NONaturals.html#4216" class="Function Operator">∸</a> <a id="4254" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="4258" href="./NONaturals.html#4258" class="Bound">n</a> <a id="4260" class="Symbol" href="./">=</a> <a id="4262" href="./NONaturals.html#603" class="InductiveConstructor">zero</a> 
-<a id="4268" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="4272" href="./NONaturals.html#4272" class="Bound">m</a> <a id="4274" href="./NONaturals.html#4216" class="Function Operator">∸</a> <a id="4276" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="4280" href="./NONaturals.html#4280" class="Bound">n</a> <a id="4282" class="Symbol" href="./">=</a> <a id="4284" href="./NONaturals.html#4272" class="Bound">m</a> <a id="4286" href="./NONaturals.html#4216" class="Function Operator">∸</a> <a id="4288" href="./NONaturals.html#4280" class="Bound">n</a> 
+<p>自然数中不包含负数，因此如果被减数比减数小，为了保证运算的封闭性，我们将其取零。这种针对自然数的减法变种称为 <em><strong>饱和减法(Monus)</strong></em> 。</p>
+<pre class="Agda"><a id="_∸_" href="./"></a><a id="4284" href="./NONaturals.html#4284" class="Function Operator">_∸_</a> <a id="4288" class="Symbol" href="./">:</a> <a id="4290" href="./NONaturals.html#611" class="Datatype">ℕ</a> <a id="4292" class="Symbol" href="./">→</a> <a id="4294" href="./NONaturals.html#611" class="Datatype">ℕ</a> <a id="4296" class="Symbol" href="./">→</a> <a id="4298" href="./NONaturals.html#611" class="Datatype">ℕ</a> 
+<a id="4301" href="./NONaturals.html#4301" class="Bound">m</a> <a id="4303" href="./NONaturals.html#4284" class="Function Operator">∸</a> <a id="4305" href="./NONaturals.html#630" class="InductiveConstructor">zero</a> <a id="4310" class="Symbol" href="./">=</a> <a id="4312" href="./NONaturals.html#4301" class="Bound">m</a> 
+<a id="4315" href="./NONaturals.html#630" class="InductiveConstructor">zero</a> <a id="4320" href="./NONaturals.html#4284" class="Function Operator">∸</a> <a id="4322" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="4326" href="./NONaturals.html#4326" class="Bound">n</a> <a id="4328" class="Symbol" href="./">=</a> <a id="4330" href="./NONaturals.html#630" class="InductiveConstructor">zero</a> 
+<a id="4336" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="4340" href="./NONaturals.html#4340" class="Bound">m</a> <a id="4342" href="./NONaturals.html#4284" class="Function Operator">∸</a> <a id="4344" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="4348" href="./NONaturals.html#4348" class="Bound">n</a> <a id="4350" class="Symbol" href="./">=</a> <a id="4352" href="./NONaturals.html#4340" class="Bound">m</a> <a id="4354" href="./NONaturals.html#4284" class="Function Operator">∸</a> <a id="4356" href="./NONaturals.html#4348" class="Bound">n</a> 
 </pre>
 <p>饱和减法首次对两个参数使用了模式匹配：</p>
 <ul>
@@ -204,12 +294,11 @@ m ^ (1 + n) ≡ m * (m ^ n)
 <p>注意： 在定义运算符过程中，应当确保“不重不漏”。</p>
 </blockquote>
 <h3 id="优先级" ebook-toc-level-3="" heading="优先级 ">优先级 </h3>
-<p>使用***优先级(Precedence)***可以避免书写大量括号，函数运算比任意运算符结合更紧密，拥有最高优先级，因此在运算符和函数混合的表达式中可以去除包裹在函数外的括号，例如<code>suc m + n</code>。</p>
+<p>使用 <em><strong>优先级(Precedence)</strong></em> 可以避免书写大量括号，函数运算比任意运算符结合更紧密，拥有最高优先级，因此在运算符和函数混合的表达式中可以去除包裹在函数外的括号，例如<code>suc m + n</code>。</p>
 <p>在Agda中，中缀运算符的优先级和结合性需要被声明：</p>
-<pre class="Agda"> 
-<a id="4644" class="Keyword" href="./">infixl</a> <a id="4651" class="Number" href="./">6</a> <a id="4653" href="./NONaturals.html#2290" class="Primitive Operator">_+_</a> <a id="4657" href="./NONaturals.html#4216" class="Primitive Operator">_∸_</a>
-<a id="4661" class="Keyword" href="./">infixl</a> <a id="4668" class="Number" href="./">7</a> <a id="4670" href="./NONaturals.html#3635" class="Primitive Operator">_*_</a>
-<a id="4674" class="Keyword" href="./">infixr</a> <a id="4681" class="Number" href="./">8</a> <a id="4683" href="./NONaturals.html#4054" class="Function Operator">_^_</a>
+<pre class="Agda"><a id="4712" class="Keyword" href="./">infixl</a> <a id="4719" class="Number" href="./">6</a> <a id="4721" href="./NONaturals.html#2351" class="Primitive Operator">_+_</a> <a id="4725" href="./NONaturals.html#4284" class="Primitive Operator">_∸_</a>
+<a id="4729" class="Keyword" href="./">infixl</a> <a id="4736" class="Number" href="./">7</a> <a id="4738" href="./NONaturals.html#3707" class="Primitive Operator">_*_</a>
+<a id="4742" class="Keyword" href="./">infixr</a> <a id="4749" class="Number" href="./">8</a> <a id="4751" href="./NONaturals.html#4122" class="Function Operator">_^_</a>
 </pre>
 <p>这里加法，饱和减法，乘法都是左结合的，且加法和饱和减法优先级更低；乘方是右结合的，且优先级高于其余三个运算符。</p>
 <p>除此之外，用户也可以使用<code>infix</code>表示总是需要括号来消除歧义。</p>
@@ -221,112 +310,111 @@ m ^ (1 + n) ≡ m * (m ^ n)
 <p>而</p>
 <p><code>_+_ a b</code> 表示 <code>(_+_ a) b</code>。</p>
 <h2 id="更多编译指令" ebook-toc-level-2="" heading="更多编译指令 ">更多编译指令 </h2>
-<pre class="Agda"> 
-<a id="5002" class="Symbol" href="./">{-#</a> <a id="5006" class="Keyword" href="./">BUILTIN</a> <a id="5014" class="Keyword" href="./">NATPLUS</a> <a id="5022" href="./NONaturals.html#2290" class="Primitive Operator">_+_</a> <a id="5026" class="Symbol" href="./">#-}</a>
-<a id="5030" class="Symbol" href="./">{-#</a> <a id="5034" class="Keyword" href="./">BUILTIN</a> <a id="5042" class="Keyword" href="./">NATTIMES</a> <a id="5051" href="./NONaturals.html#3635" class="Primitive Operator">_*_</a> <a id="5055" class="Symbol" href="./">#-}</a>
-<a id="5059" class="Symbol" href="./">{-#</a> <a id="5063" class="Keyword" href="./">BUILTIN</a> <a id="5071" class="Keyword" href="./">NATMINUS</a> <a id="5080" href="./NONaturals.html#4216" class="Primitive Operator">_∸_</a> <a id="5084" class="Symbol" href="./">#-}</a>
+<pre class="Agda"><a id="5068" class="Symbol" href="./">{-#</a> <a id="5072" class="Keyword" href="./">BUILTIN</a> <a id="5080" class="Keyword" href="./">NATPLUS</a> <a id="5088" href="./NONaturals.html#2351" class="Primitive Operator">_+_</a> <a id="5092" class="Symbol" href="./">#-}</a>
+<a id="5096" class="Symbol" href="./">{-#</a> <a id="5100" class="Keyword" href="./">BUILTIN</a> <a id="5108" class="Keyword" href="./">NATTIMES</a> <a id="5117" href="./NONaturals.html#3707" class="Primitive Operator">_*_</a> <a id="5121" class="Symbol" href="./">#-}</a>
+<a id="5125" class="Symbol" href="./">{-#</a> <a id="5129" class="Keyword" href="./">BUILTIN</a> <a id="5137" class="Keyword" href="./">NATMINUS</a> <a id="5146" href="./NONaturals.html#4284" class="Primitive Operator">_∸_</a> <a id="5150" class="Symbol" href="./">#-}</a>
 </pre>
 <h2 id="标准库" ebook-toc-level-2="" heading="标准库 ">标准库 </h2>
-<pre class="Agda"><a id="5111" class="Comment" href="./">-- import Data.Nat using (ℕ; zero; suc; _+_; _*_; _^_; _∸_)</a>
+<pre class="Agda"><a id="5177" class="Comment" href="./">-- import Data.Nat using (ℕ; zero; suc; _+_; _*_; _^_; _∸_)</a>
 </pre>
 <hr>
 <h2 id="习题参考" ebook-toc-level-2="" heading="习题参考 ">习题参考 </h2>
 <h3 id="练习seven实践" ebook-toc-level-3="" heading="练习<code>seven</code>(实践) ">练习<code>seven</code>(实践) </h3>
-<pre class="Agda"><a id="5267" href="./NONaturals.html#5267" class="Function">_</a> <a id="5269" class="Symbol" href="./">:</a> <a id="5271" href="./NONaturals.html#584" class="Datatype">ℕ</a> 
-<a id="5274" class="Symbol" href="./">_</a> <a id="5276" class="Symbol" href="./">=</a> <a id="5278" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5282" class="Symbol" href="./">(</a><a id="5283" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5287" class="Symbol" href="./">(</a><a id="5288" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5292" class="Symbol" href="./">(</a><a id="5293" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5297" class="Symbol" href="./">(</a><a id="5298" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5302" class="Symbol" href="./">(</a><a id="5303" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5307" href="./NONaturals.html#603" class="InductiveConstructor">zero</a><a id="5311" class="Symbol" href="./">)))))</a>
+<pre class="Agda"><a id="5333" href="./NONaturals.html#5333" class="Function">_</a> <a id="5335" class="Symbol" href="./">:</a> <a id="5337" href="./NONaturals.html#611" class="Datatype">ℕ</a> 
+<a id="5340" class="Symbol" href="./">_</a> <a id="5342" class="Symbol" href="./">=</a> <a id="5344" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5348" class="Symbol" href="./">(</a><a id="5349" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5353" class="Symbol" href="./">(</a><a id="5354" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5358" class="Symbol" href="./">(</a><a id="5359" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5363" class="Symbol" href="./">(</a><a id="5364" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5368" class="Symbol" href="./">(</a><a id="5369" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5373" href="./NONaturals.html#630" class="InductiveConstructor">zero</a><a id="5377" class="Symbol" href="./">)))))</a>
 </pre>
 <h3 id="练习-example实践" ebook-toc-level-3="" heading="练习<code>+-example</code>(实践) ">练习<code>+-example</code>(实践) </h3>
 <p>计算<code>3 + 4</code>,将你的推导国策划嗯写成等式链，为<code>+</code>使用等式。</p>
-<pre class="Agda"><a id="5390" href="./NONaturals.html#5390" class="Function">_</a> <a id="5392" class="Symbol" href="./">:</a> <a id="5394" class="Number" href="./">3</a> <a id="5396" href="./NONaturals.html#2290" class="Primitive Operator">+</a> <a id="5398" class="Number" href="./">4</a> <a id="5400" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="5402" class="Number" href="./">7</a> 
-<a id="5405" class="Symbol" href="./">_</a> <a id="5407" class="Symbol" href="./">=</a> 
-    <a id="5414" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin</a> 
-        <a id="5429" class="Number" href="./">3</a> <a id="5431" href="./NONaturals.html#2290" class="Primitive Operator">+</a> <a id="5433" class="Number" href="./">4</a> 
-    <a id="5440" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="5453" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5457" class="Symbol" href="./">(</a><a id="5458" class="Number" href="./">2</a> <a id="5460" href="./NONaturals.html#2290" class="Primitive Operator">+</a> <a id="5462" class="Number" href="./">4</a><a id="5463" class="Symbol" href="./">)</a>
-    <a id="5469" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="5482" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5486" class="Symbol" href="./">(</a><a id="5487" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5491" class="Symbol" href="./">(</a><a id="5492" class="Number" href="./">1</a> <a id="5494" href="./NONaturals.html#2290" class="Primitive Operator">+</a> <a id="5496" class="Number" href="./">4</a><a id="5497" class="Symbol" href="./">))</a>
-    <a id="5504" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="5517" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5521" class="Symbol" href="./">(</a><a id="5522" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5526" class="Symbol" href="./">(</a><a id="5527" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5531" class="Symbol" href="./">(</a><a id="5532" class="Number" href="./">0</a> <a id="5534" href="./NONaturals.html#2290" class="Primitive Operator">+</a> <a id="5536" class="Number" href="./">4</a><a id="5537" class="Symbol" href="./">)))</a>
-    <a id="5545" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="5558" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5562" class="Symbol" href="./">(</a><a id="5563" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5567" class="Symbol" href="./">(</a><a id="5568" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="5572" class="Number" href="./">4</a><a id="5573" class="Symbol" href="./">))</a>
-    <a id="5580" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="5593" class="Number" href="./">7</a>
-    <a id="5599" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">∎</a>
+<pre class="Agda"><a id="5456" href="./NONaturals.html#5456" class="Function">_</a> <a id="5458" class="Symbol" href="./">:</a> <a id="5460" class="Number" href="./">3</a> <a id="5462" href="./NONaturals.html#2351" class="Primitive Operator">+</a> <a id="5464" class="Number" href="./">4</a> <a id="5466" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="5468" class="Number" href="./">7</a> 
+<a id="5471" class="Symbol" href="./">_</a> <a id="5473" class="Symbol" href="./">=</a> 
+    <a id="5480" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin</a> 
+        <a id="5495" class="Number" href="./">3</a> <a id="5497" href="./NONaturals.html#2351" class="Primitive Operator">+</a> <a id="5499" class="Number" href="./">4</a> 
+    <a id="5506" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="5519" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5523" class="Symbol" href="./">(</a><a id="5524" class="Number" href="./">2</a> <a id="5526" href="./NONaturals.html#2351" class="Primitive Operator">+</a> <a id="5528" class="Number" href="./">4</a><a id="5529" class="Symbol" href="./">)</a>
+    <a id="5535" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="5548" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5552" class="Symbol" href="./">(</a><a id="5553" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5557" class="Symbol" href="./">(</a><a id="5558" class="Number" href="./">1</a> <a id="5560" href="./NONaturals.html#2351" class="Primitive Operator">+</a> <a id="5562" class="Number" href="./">4</a><a id="5563" class="Symbol" href="./">))</a>
+    <a id="5570" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="5583" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5587" class="Symbol" href="./">(</a><a id="5588" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5592" class="Symbol" href="./">(</a><a id="5593" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5597" class="Symbol" href="./">(</a><a id="5598" class="Number" href="./">0</a> <a id="5600" href="./NONaturals.html#2351" class="Primitive Operator">+</a> <a id="5602" class="Number" href="./">4</a><a id="5603" class="Symbol" href="./">)))</a>
+    <a id="5611" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="5624" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5628" class="Symbol" href="./">(</a><a id="5629" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5633" class="Symbol" href="./">(</a><a id="5634" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="5638" class="Number" href="./">4</a><a id="5639" class="Symbol" href="./">))</a>
+    <a id="5646" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="5659" class="Number" href="./">7</a>
+    <a id="5665" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">∎</a>
 </pre>
 <h3 id="练习-example实践-1" ebook-toc-level-3="" heading="练习<code>*-example</code>(实践) ">练习<code>*-example</code>(实践) </h3>
 <p>计算<code>3 * 4</code>，将你的推导过程写成等式链，为<code>*</code>使用等式(不必对加法过程详细描述)。</p>
-<pre class="Agda"><a id="5686" href="./NONaturals.html#5686" class="Function">_</a> <a id="5688" class="Symbol" href="./">:</a> <a id="5690" class="Number" href="./">3</a> <a id="5692" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="5694" class="Number" href="./">4</a> <a id="5696" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="5698" class="Number" href="./">12</a> 
-<a id="5702" class="Symbol" href="./">_</a> <a id="5704" class="Symbol" href="./">=</a> 
-    <a id="5711" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin</a> 
-        <a id="5726" class="Number" href="./">3</a> <a id="5728" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="5730" class="Number" href="./">4</a> 
-    <a id="5737" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="5750" class="Number" href="./">4</a> <a id="5752" href="./NONaturals.html#2290" class="Primitive Operator">+</a> <a id="5754" class="Number" href="./">2</a> <a id="5756" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="5758" class="Number" href="./">4</a> 
-    <a id="5765" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="5778" class="Number" href="./">4</a> <a id="5780" href="./NONaturals.html#2290" class="Primitive Operator">+</a> <a id="5782" class="Symbol" href="./">(</a><a id="5783" class="Number" href="./">4</a> <a id="5785" href="./NONaturals.html#2290" class="Primitive Operator">+</a> <a id="5787" class="Number" href="./">1</a> <a id="5789" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="5791" class="Number" href="./">4</a><a id="5792" class="Symbol" href="./">)</a> 
-    <a id="5799" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="5812" class="Number" href="./">4</a> <a id="5814" href="./NONaturals.html#2290" class="Primitive Operator">+</a> <a id="5816" class="Symbol" href="./">(</a><a id="5817" class="Number" href="./">4</a> <a id="5819" href="./NONaturals.html#2290" class="Primitive Operator">+</a> <a id="5821" class="Symbol" href="./">(</a><a id="5822" class="Number" href="./">4</a> <a id="5824" href="./NONaturals.html#2290" class="Primitive Operator">+</a> <a id="5826" class="Number" href="./">0</a> <a id="5828" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="5830" class="Number" href="./">4</a><a id="5831" class="Symbol" href="./">))</a> 
-    <a id="5839" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="5852" class="Number" href="./">4</a> <a id="5854" href="./NONaturals.html#2290" class="Primitive Operator">+</a> <a id="5856" class="Symbol" href="./">(</a><a id="5857" class="Number" href="./">4</a> <a id="5859" href="./NONaturals.html#2290" class="Primitive Operator">+</a> <a id="5861" class="Symbol" href="./">(</a><a id="5862" class="Number" href="./">4</a> <a id="5864" href="./NONaturals.html#2290" class="Primitive Operator">+</a> <a id="5866" class="Number" href="./">0</a><a id="5867" class="Symbol" href="./">))</a>
-    <a id="5874" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="5887" class="Number" href="./">12</a>
-    <a id="5894" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">∎</a>
+<pre class="Agda"><a id="5752" href="./NONaturals.html#5752" class="Function">_</a> <a id="5754" class="Symbol" href="./">:</a> <a id="5756" class="Number" href="./">3</a> <a id="5758" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="5760" class="Number" href="./">4</a> <a id="5762" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="5764" class="Number" href="./">12</a> 
+<a id="5768" class="Symbol" href="./">_</a> <a id="5770" class="Symbol" href="./">=</a> 
+    <a id="5777" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin</a> 
+        <a id="5792" class="Number" href="./">3</a> <a id="5794" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="5796" class="Number" href="./">4</a> 
+    <a id="5803" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="5816" class="Number" href="./">4</a> <a id="5818" href="./NONaturals.html#2351" class="Primitive Operator">+</a> <a id="5820" class="Number" href="./">2</a> <a id="5822" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="5824" class="Number" href="./">4</a> 
+    <a id="5831" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="5844" class="Number" href="./">4</a> <a id="5846" href="./NONaturals.html#2351" class="Primitive Operator">+</a> <a id="5848" class="Symbol" href="./">(</a><a id="5849" class="Number" href="./">4</a> <a id="5851" href="./NONaturals.html#2351" class="Primitive Operator">+</a> <a id="5853" class="Number" href="./">1</a> <a id="5855" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="5857" class="Number" href="./">4</a><a id="5858" class="Symbol" href="./">)</a> 
+    <a id="5865" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="5878" class="Number" href="./">4</a> <a id="5880" href="./NONaturals.html#2351" class="Primitive Operator">+</a> <a id="5882" class="Symbol" href="./">(</a><a id="5883" class="Number" href="./">4</a> <a id="5885" href="./NONaturals.html#2351" class="Primitive Operator">+</a> <a id="5887" class="Symbol" href="./">(</a><a id="5888" class="Number" href="./">4</a> <a id="5890" href="./NONaturals.html#2351" class="Primitive Operator">+</a> <a id="5892" class="Number" href="./">0</a> <a id="5894" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="5896" class="Number" href="./">4</a><a id="5897" class="Symbol" href="./">))</a> 
+    <a id="5905" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="5918" class="Number" href="./">4</a> <a id="5920" href="./NONaturals.html#2351" class="Primitive Operator">+</a> <a id="5922" class="Symbol" href="./">(</a><a id="5923" class="Number" href="./">4</a> <a id="5925" href="./NONaturals.html#2351" class="Primitive Operator">+</a> <a id="5927" class="Symbol" href="./">(</a><a id="5928" class="Number" href="./">4</a> <a id="5930" href="./NONaturals.html#2351" class="Primitive Operator">+</a> <a id="5932" class="Number" href="./">0</a><a id="5933" class="Symbol" href="./">))</a>
+    <a id="5940" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="5953" class="Number" href="./">12</a>
+    <a id="5960" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">∎</a>
 </pre>
 <h3 id="练习__推荐" ebook-toc-level-3="" heading="练习<code>_^_</code>(推荐) ">练习<code>_^_</code>(推荐) </h3>
 <p>检查<code>3 ^ 4</code>是否等于<code>81</code>。</p>
-<pre class="Agda"><a id="5948" href="./NONaturals.html#5948" class="Function">_</a> <a id="5950" class="Symbol" href="./">:</a> <a id="5952" class="Number" href="./">3</a> <a id="5954" href="./NONaturals.html#4054" class="Function Operator">^</a> <a id="5956" class="Number" href="./">4</a> <a id="5958" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="5960" class="Number" href="./">81</a>
-<a id="5963" class="Symbol" href="./">_</a> <a id="5965" class="Symbol" href="./">=</a> 
-    <a id="5972" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin</a> 
-        <a id="5987" class="Number" href="./">3</a> <a id="5989" href="./NONaturals.html#4054" class="Function Operator">^</a> <a id="5991" class="Number" href="./">4</a> 
-    <a id="5998" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="6011" class="Number" href="./">3</a> <a id="6013" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="6015" class="Number" href="./">3</a> <a id="6017" href="./NONaturals.html#4054" class="Function Operator">^</a> <a id="6019" class="Number" href="./">3</a> 
-    <a id="6026" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="6039" class="Number" href="./">3</a> <a id="6041" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="6043" class="Symbol" href="./">(</a><a id="6044" class="Number" href="./">3</a> <a id="6046" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="6048" class="Number" href="./">3</a> <a id="6050" href="./NONaturals.html#4054" class="Function Operator">^</a> <a id="6052" class="Number" href="./">2</a><a id="6053" class="Symbol" href="./">)</a>
-    <a id="6059" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="6072" class="Number" href="./">3</a> <a id="6074" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="6076" class="Symbol" href="./">(</a><a id="6077" class="Number" href="./">3</a> <a id="6079" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="6081" class="Symbol" href="./">(</a><a id="6082" class="Number" href="./">3</a> <a id="6084" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="6086" class="Number" href="./">3</a> <a id="6088" href="./NONaturals.html#4054" class="Function Operator">^</a> <a id="6090" class="Number" href="./">1</a><a id="6091" class="Symbol" href="./">))</a>
-    <a id="6098" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="6111" class="Number" href="./">3</a> <a id="6113" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="6115" class="Symbol" href="./">(</a><a id="6116" class="Number" href="./">3</a> <a id="6118" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="6120" class="Symbol" href="./">(</a><a id="6121" class="Number" href="./">3</a> <a id="6123" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="6125" class="Symbol" href="./">(</a><a id="6126" class="Number" href="./">3</a> <a id="6128" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="6130" class="Number" href="./">3</a> <a id="6132" href="./NONaturals.html#4054" class="Function Operator">^</a> <a id="6134" class="Number" href="./">0</a><a id="6135" class="Symbol" href="./">)))</a>
-    <a id="6143" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="6156" class="Number" href="./">3</a> <a id="6158" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="6160" class="Symbol" href="./">(</a><a id="6161" class="Number" href="./">3</a> <a id="6163" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="6165" class="Symbol" href="./">(</a><a id="6166" class="Number" href="./">3</a> <a id="6168" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="6170" class="Symbol" href="./">(</a><a id="6171" class="Number" href="./">3</a> <a id="6173" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="6175" class="Number" href="./">1</a><a id="6176" class="Symbol" href="./">)))</a>
-    <a id="6184" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="6197" class="Number" href="./">81</a>
-    <a id="6204" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">∎</a>
+<pre class="Agda"><a id="6014" href="./NONaturals.html#6014" class="Function">_</a> <a id="6016" class="Symbol" href="./">:</a> <a id="6018" class="Number" href="./">3</a> <a id="6020" href="./NONaturals.html#4122" class="Function Operator">^</a> <a id="6022" class="Number" href="./">4</a> <a id="6024" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="6026" class="Number" href="./">81</a>
+<a id="6029" class="Symbol" href="./">_</a> <a id="6031" class="Symbol" href="./">=</a> 
+    <a id="6038" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin</a> 
+        <a id="6053" class="Number" href="./">3</a> <a id="6055" href="./NONaturals.html#4122" class="Function Operator">^</a> <a id="6057" class="Number" href="./">4</a> 
+    <a id="6064" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="6077" class="Number" href="./">3</a> <a id="6079" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="6081" class="Number" href="./">3</a> <a id="6083" href="./NONaturals.html#4122" class="Function Operator">^</a> <a id="6085" class="Number" href="./">3</a> 
+    <a id="6092" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="6105" class="Number" href="./">3</a> <a id="6107" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="6109" class="Symbol" href="./">(</a><a id="6110" class="Number" href="./">3</a> <a id="6112" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="6114" class="Number" href="./">3</a> <a id="6116" href="./NONaturals.html#4122" class="Function Operator">^</a> <a id="6118" class="Number" href="./">2</a><a id="6119" class="Symbol" href="./">)</a>
+    <a id="6125" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="6138" class="Number" href="./">3</a> <a id="6140" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="6142" class="Symbol" href="./">(</a><a id="6143" class="Number" href="./">3</a> <a id="6145" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="6147" class="Symbol" href="./">(</a><a id="6148" class="Number" href="./">3</a> <a id="6150" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="6152" class="Number" href="./">3</a> <a id="6154" href="./NONaturals.html#4122" class="Function Operator">^</a> <a id="6156" class="Number" href="./">1</a><a id="6157" class="Symbol" href="./">))</a>
+    <a id="6164" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="6177" class="Number" href="./">3</a> <a id="6179" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="6181" class="Symbol" href="./">(</a><a id="6182" class="Number" href="./">3</a> <a id="6184" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="6186" class="Symbol" href="./">(</a><a id="6187" class="Number" href="./">3</a> <a id="6189" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="6191" class="Symbol" href="./">(</a><a id="6192" class="Number" href="./">3</a> <a id="6194" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="6196" class="Number" href="./">3</a> <a id="6198" href="./NONaturals.html#4122" class="Function Operator">^</a> <a id="6200" class="Number" href="./">0</a><a id="6201" class="Symbol" href="./">)))</a>
+    <a id="6209" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="6222" class="Number" href="./">3</a> <a id="6224" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="6226" class="Symbol" href="./">(</a><a id="6227" class="Number" href="./">3</a> <a id="6229" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="6231" class="Symbol" href="./">(</a><a id="6232" class="Number" href="./">3</a> <a id="6234" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="6236" class="Symbol" href="./">(</a><a id="6237" class="Number" href="./">3</a> <a id="6239" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="6241" class="Number" href="./">1</a><a id="6242" class="Symbol" href="./">)))</a>
+    <a id="6250" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="6263" class="Number" href="./">81</a>
+    <a id="6270" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">∎</a>
 </pre>
 <h3 id="练习-example1和-example2推荐" ebook-toc-level-3="" heading="练习<code>∸-example₁</code>和<code>∸-example₂</code>(推荐) ">练习<code>∸-example₁</code>和<code>∸-example₂</code>(推荐) </h3>
 <p>计算<code>5 ∸ 3</code>和<code>3 ∸ 5</code>，将你的推荐过程写成等式链。</p>
-<pre class="Agda"><a id="∸-example₁" href="./"></a><a id="6291" href="./NONaturals.html#6291" class="Function">∸-example₁</a> <a id="6302" class="Symbol" href="./">:</a> <a id="6304" class="Number" href="./">5</a> <a id="6306" href="./NONaturals.html#4216" class="Primitive Operator">∸</a> <a id="6308" class="Number" href="./">3</a> <a id="6310" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="6312" class="Number" href="./">2</a> 
-<a id="6315" href="./NONaturals.html#6291" class="Function">∸-example₁</a> <a id="6326" class="Symbol" href="./">=</a> 
-    <a id="6333" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin</a> 
-        <a id="6348" class="Number" href="./">5</a> <a id="6350" href="./NONaturals.html#4216" class="Primitive Operator">∸</a> <a id="6352" class="Number" href="./">3</a> 
-    <a id="6359" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="6372" class="Number" href="./">4</a> <a id="6374" href="./NONaturals.html#4216" class="Primitive Operator">∸</a> <a id="6376" class="Number" href="./">2</a> 
-    <a id="6383" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="6396" class="Number" href="./">3</a> <a id="6398" href="./NONaturals.html#4216" class="Primitive Operator">∸</a> <a id="6400" class="Number" href="./">1</a> 
-    <a id="6407" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="6420" class="Number" href="./">2</a> <a id="6422" href="./NONaturals.html#4216" class="Primitive Operator">∸</a> <a id="6424" class="Number" href="./">0</a>
-    <a id="6430" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="6443" class="Number" href="./">2</a>
-    <a id="6449" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">∎</a>
+<pre class="Agda"><a id="∸-example₁" href="./"></a><a id="6357" href="./NONaturals.html#6357" class="Function">∸-example₁</a> <a id="6368" class="Symbol" href="./">:</a> <a id="6370" class="Number" href="./">5</a> <a id="6372" href="./NONaturals.html#4284" class="Primitive Operator">∸</a> <a id="6374" class="Number" href="./">3</a> <a id="6376" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="6378" class="Number" href="./">2</a> 
+<a id="6381" href="./NONaturals.html#6357" class="Function">∸-example₁</a> <a id="6392" class="Symbol" href="./">=</a> 
+    <a id="6399" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin</a> 
+        <a id="6414" class="Number" href="./">5</a> <a id="6416" href="./NONaturals.html#4284" class="Primitive Operator">∸</a> <a id="6418" class="Number" href="./">3</a> 
+    <a id="6425" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="6438" class="Number" href="./">4</a> <a id="6440" href="./NONaturals.html#4284" class="Primitive Operator">∸</a> <a id="6442" class="Number" href="./">2</a> 
+    <a id="6449" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="6462" class="Number" href="./">3</a> <a id="6464" href="./NONaturals.html#4284" class="Primitive Operator">∸</a> <a id="6466" class="Number" href="./">1</a> 
+    <a id="6473" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="6486" class="Number" href="./">2</a> <a id="6488" href="./NONaturals.html#4284" class="Primitive Operator">∸</a> <a id="6490" class="Number" href="./">0</a>
+    <a id="6496" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="6509" class="Number" href="./">2</a>
+    <a id="6515" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">∎</a>
 
-<a id="∸-example₂" href="./"></a><a id="6452" href="./NONaturals.html#6452" class="Function">∸-example₂</a> <a id="6463" class="Symbol" href="./">:</a> <a id="6465" class="Number" href="./">3</a> <a id="6467" href="./NONaturals.html#4216" class="Primitive Operator">∸</a> <a id="6469" class="Number" href="./">5</a> <a id="6471" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="6473" class="Number" href="./">0</a> 
-<a id="6476" href="./NONaturals.html#6452" class="Function">∸-example₂</a> <a id="6487" class="Symbol" href="./">=</a> 
-    <a id="6494" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin</a> 
-        <a id="6509" class="Number" href="./">3</a> <a id="6511" href="./NONaturals.html#4216" class="Primitive Operator">∸</a> <a id="6513" class="Number" href="./">5</a> 
-    <a id="6520" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="6533" class="Number" href="./">2</a> <a id="6535" href="./NONaturals.html#4216" class="Primitive Operator">∸</a> <a id="6537" class="Number" href="./">4</a> 
-    <a id="6544" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="6557" class="Number" href="./">1</a> <a id="6559" href="./NONaturals.html#4216" class="Primitive Operator">∸</a> <a id="6561" class="Number" href="./">3</a> 
-    <a id="6568" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="6581" class="Number" href="./">0</a> <a id="6583" href="./NONaturals.html#4216" class="Primitive Operator">∸</a> <a id="6585" class="Number" href="./">2</a> 
-    <a id="6592" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
-        <a id="6605" class="Number" href="./">0</a>
-    <a id="6611" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">∎</a> 
+<a id="∸-example₂" href="./"></a><a id="6518" href="./NONaturals.html#6518" class="Function">∸-example₂</a> <a id="6529" class="Symbol" href="./">:</a> <a id="6531" class="Number" href="./">3</a> <a id="6533" href="./NONaturals.html#4284" class="Primitive Operator">∸</a> <a id="6535" class="Number" href="./">5</a> <a id="6537" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="6539" class="Number" href="./">0</a> 
+<a id="6542" href="./NONaturals.html#6518" class="Function">∸-example₂</a> <a id="6553" class="Symbol" href="./">=</a> 
+    <a id="6560" href="./Relation.Binary.PropositionalEquality.Core.html#2815" class="Function Operator">begin</a> 
+        <a id="6575" class="Number" href="./">3</a> <a id="6577" href="./NONaturals.html#4284" class="Primitive Operator">∸</a> <a id="6579" class="Number" href="./">5</a> 
+    <a id="6586" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="6599" class="Number" href="./">2</a> <a id="6601" href="./NONaturals.html#4284" class="Primitive Operator">∸</a> <a id="6603" class="Number" href="./">4</a> 
+    <a id="6610" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="6623" class="Number" href="./">1</a> <a id="6625" href="./NONaturals.html#4284" class="Primitive Operator">∸</a> <a id="6627" class="Number" href="./">3</a> 
+    <a id="6634" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="6647" class="Number" href="./">0</a> <a id="6649" href="./NONaturals.html#4284" class="Primitive Operator">∸</a> <a id="6651" class="Number" href="./">2</a> 
+    <a id="6658" href="./Relation.Binary.PropositionalEquality.Core.html#2873" class="Function Operator">≡⟨⟩</a> 
+        <a id="6671" class="Number" href="./">0</a>
+    <a id="6677" href="./Relation.Binary.PropositionalEquality.Core.html#3114" class="Function Operator">∎</a> 
 </pre>
 <h3 id="练习bin拓展" ebook-toc-level-3="" heading="练习<code>Bin</code>(拓展) ">练习<code>Bin</code>(拓展) </h3>
 <p>使用二进制系统能提供比一进制系统更高效的自然数表示，我们可以用一个比特串来表示一个数：</p>
-<pre class="Agda"><a id="6691" class="Keyword" href="./">data</a> <a id="Bin" href="./"></a><a id="6696" href="./NONaturals.html#6696" class="Datatype">Bin</a> <a id="6700" class="Symbol" href="./">:</a> <a id="6702" href="./Agda.Primitive.html#388" class="Primitive">Set</a> <a id="6706" class="Keyword" href="./">where</a> 
-    <a id="Bin.⟨⟩" href="./"></a><a id="6717" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="6720" class="Symbol" href="./">:</a> <a id="6722" href="./NONaturals.html#6696" class="Datatype">Bin</a> 
-    <a id="Bin._O" href="./"></a><a id="6731" href="./NONaturals.html#6731" class="InductiveConstructor Operator">_O</a> <a id="6734" class="Symbol" href="./">:</a> <a id="6736" href="./NONaturals.html#6696" class="Datatype">Bin</a> <a id="6740" class="Symbol" href="./">→</a> <a id="6742" href="./NONaturals.html#6696" class="Datatype">Bin</a> 
-    <a id="Bin._I" href="./"></a><a id="6751" href="./NONaturals.html#6751" class="InductiveConstructor Operator">_I</a> <a id="6754" class="Symbol" href="./">:</a> <a id="6756" href="./NONaturals.html#6696" class="Datatype">Bin</a> <a id="6760" class="Symbol" href="./">→</a> <a id="6762" href="./NONaturals.html#6696" class="Datatype">Bin</a> 
+<pre class="Agda"><a id="6757" class="Keyword" href="./">data</a> <a id="Bin" href="./"></a><a id="6762" href="./NONaturals.html#6762" class="Datatype">Bin</a> <a id="6766" class="Symbol" href="./">:</a> <a id="6768" href="./Agda.Primitive.html#388" class="Primitive">Set</a> <a id="6772" class="Keyword" href="./">where</a> 
+    <a id="Bin.⟨⟩" href="./"></a><a id="6783" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="6786" class="Symbol" href="./">:</a> <a id="6788" href="./NONaturals.html#6762" class="Datatype">Bin</a> 
+    <a id="Bin._O" href="./"></a><a id="6797" href="./NONaturals.html#6797" class="InductiveConstructor Operator">_O</a> <a id="6800" class="Symbol" href="./">:</a> <a id="6802" href="./NONaturals.html#6762" class="Datatype">Bin</a> <a id="6806" class="Symbol" href="./">→</a> <a id="6808" href="./NONaturals.html#6762" class="Datatype">Bin</a> 
+    <a id="Bin._I" href="./"></a><a id="6817" href="./NONaturals.html#6817" class="InductiveConstructor Operator">_I</a> <a id="6820" class="Symbol" href="./">:</a> <a id="6822" href="./NONaturals.html#6762" class="Datatype">Bin</a> <a id="6826" class="Symbol" href="./">→</a> <a id="6828" href="./NONaturals.html#6762" class="Datatype">Bin</a> 
 </pre>
 <p>例如，以下比特串：</p>
 <pre class="language-text">1011
@@ -344,69 +432,69 @@ m ^ (1 + n) ≡ m * (m ^ n)
 <pre class="language-text">inc (⟨⟩ I O I I) ≡ ⟨⟩ I I O O 
 </pre>
 <p>实现这个函数，并验证它对于表示零到四的比特串都能给出正确结果。</p>
-<pre class="Agda"><a id="inc" href="./"></a><a id="7040" href="./NONaturals.html#7040" class="Function">inc</a> <a id="7044" class="Symbol" href="./">:</a> <a id="7046" href="./NONaturals.html#6696" class="Datatype">Bin</a> <a id="7050" class="Symbol" href="./">→</a> <a id="7052" href="./NONaturals.html#6696" class="Datatype">Bin</a> 
-<a id="7057" href="./NONaturals.html#7040" class="Function">inc</a> <a id="7061" class="Symbol" href="./">(</a><a id="7062" href="./NONaturals.html#7062" class="Bound">pre</a> <a id="7066" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a><a id="7067" class="Symbol" href="./">)</a> <a id="7069" class="Symbol" href="./">=</a> <a id="7071" class="Symbol" href="./">(</a><a id="7072" href="./NONaturals.html#7040" class="Function">inc</a> <a id="7076" href="./NONaturals.html#7062" class="Bound">pre</a><a id="7079" class="Symbol" href="./">)</a> <a id="7081" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a>
-<a id="7083" href="./NONaturals.html#7040" class="Function">inc</a> <a id="7087" class="Symbol" href="./">(</a><a id="7088" href="./NONaturals.html#7088" class="Bound">pre</a> <a id="7092" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a><a id="7093" class="Symbol" href="./">)</a> <a id="7095" class="Symbol" href="./">=</a> <a id="7097" href="./NONaturals.html#7088" class="Bound">pre</a> <a id="7101" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> 
-<a id="7104" href="./NONaturals.html#7040" class="Function">inc</a> <a id="7108" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7111" class="Symbol" href="./">=</a> <a id="7113" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7116" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> 
+<pre class="Agda"><a id="inc" href="./"></a><a id="7106" href="./NONaturals.html#7106" class="Function">inc</a> <a id="7110" class="Symbol" href="./">:</a> <a id="7112" href="./NONaturals.html#6762" class="Datatype">Bin</a> <a id="7116" class="Symbol" href="./">→</a> <a id="7118" href="./NONaturals.html#6762" class="Datatype">Bin</a> 
+<a id="7123" href="./NONaturals.html#7106" class="Function">inc</a> <a id="7127" class="Symbol" href="./">(</a><a id="7128" href="./NONaturals.html#7128" class="Bound">pre</a> <a id="7132" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a><a id="7133" class="Symbol" href="./">)</a> <a id="7135" class="Symbol" href="./">=</a> <a id="7137" class="Symbol" href="./">(</a><a id="7138" href="./NONaturals.html#7106" class="Function">inc</a> <a id="7142" href="./NONaturals.html#7128" class="Bound">pre</a><a id="7145" class="Symbol" href="./">)</a> <a id="7147" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a>
+<a id="7149" href="./NONaturals.html#7106" class="Function">inc</a> <a id="7153" class="Symbol" href="./">(</a><a id="7154" href="./NONaturals.html#7154" class="Bound">pre</a> <a id="7158" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a><a id="7159" class="Symbol" href="./">)</a> <a id="7161" class="Symbol" href="./">=</a> <a id="7163" href="./NONaturals.html#7154" class="Bound">pre</a> <a id="7167" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> 
+<a id="7170" href="./NONaturals.html#7106" class="Function">inc</a> <a id="7174" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7177" class="Symbol" href="./">=</a> <a id="7179" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7182" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> 
 
-<a id="7120" href="./NONaturals.html#7120" class="Function">_</a> <a id="7122" class="Symbol" href="./">:</a> <a id="7124" href="./NONaturals.html#7040" class="Function">inc</a> <a id="7128" class="Symbol" href="./">(</a><a id="7129" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7132" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a><a id="7133" class="Symbol" href="./">)</a> <a id="7135" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7137" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7140" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> 
-<a id="7143" class="Symbol" href="./">_</a> <a id="7145" class="Symbol" href="./">=</a> <a id="7147" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7186" href="./NONaturals.html#7186" class="Function">_</a> <a id="7188" class="Symbol" href="./">:</a> <a id="7190" href="./NONaturals.html#7106" class="Function">inc</a> <a id="7194" class="Symbol" href="./">(</a><a id="7195" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7198" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a><a id="7199" class="Symbol" href="./">)</a> <a id="7201" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7203" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7206" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> 
+<a id="7209" class="Symbol" href="./">_</a> <a id="7211" class="Symbol" href="./">=</a> <a id="7213" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 
-<a id="7154" href="./NONaturals.html#7154" class="Function">_</a> <a id="7156" class="Symbol" href="./">:</a> <a id="7158" href="./NONaturals.html#7040" class="Function">inc</a> <a id="7162" class="Symbol" href="./">(</a><a id="7163" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7166" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a><a id="7167" class="Symbol" href="./">)</a> <a id="7169" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7171" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7174" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> <a id="7176" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a> 
-<a id="7179" class="Symbol" href="./">_</a> <a id="7181" class="Symbol" href="./">=</a> <a id="7183" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7220" href="./NONaturals.html#7220" class="Function">_</a> <a id="7222" class="Symbol" href="./">:</a> <a id="7224" href="./NONaturals.html#7106" class="Function">inc</a> <a id="7228" class="Symbol" href="./">(</a><a id="7229" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7232" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a><a id="7233" class="Symbol" href="./">)</a> <a id="7235" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7237" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7240" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> <a id="7242" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a> 
+<a id="7245" class="Symbol" href="./">_</a> <a id="7247" class="Symbol" href="./">=</a> <a id="7249" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 
-<a id="7190" href="./NONaturals.html#7190" class="Function">_</a> <a id="7192" class="Symbol" href="./">:</a> <a id="7194" href="./NONaturals.html#7040" class="Function">inc</a> <a id="7198" class="Symbol" href="./">(</a><a id="7199" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7202" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> <a id="7204" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a><a id="7205" class="Symbol" href="./">)</a> <a id="7207" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7209" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7212" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> <a id="7214" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> 
-<a id="7217" class="Symbol" href="./">_</a> <a id="7219" class="Symbol" href="./">=</a> <a id="7221" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7256" href="./NONaturals.html#7256" class="Function">_</a> <a id="7258" class="Symbol" href="./">:</a> <a id="7260" href="./NONaturals.html#7106" class="Function">inc</a> <a id="7264" class="Symbol" href="./">(</a><a id="7265" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7268" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> <a id="7270" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a><a id="7271" class="Symbol" href="./">)</a> <a id="7273" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7275" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7278" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> <a id="7280" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> 
+<a id="7283" class="Symbol" href="./">_</a> <a id="7285" class="Symbol" href="./">=</a> <a id="7287" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 
-<a id="7228" href="./NONaturals.html#7228" class="Function">_</a> <a id="7230" class="Symbol" href="./">:</a> <a id="7232" href="./NONaturals.html#7040" class="Function">inc</a> <a id="7236" class="Symbol" href="./">(</a><a id="7237" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7240" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> <a id="7242" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a><a id="7243" class="Symbol" href="./">)</a> <a id="7245" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7247" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7250" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> <a id="7252" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a> <a id="7254" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a> 
-<a id="7257" class="Symbol" href="./">_</a> <a id="7259" class="Symbol" href="./">=</a> <a id="7261" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7294" href="./NONaturals.html#7294" class="Function">_</a> <a id="7296" class="Symbol" href="./">:</a> <a id="7298" href="./NONaturals.html#7106" class="Function">inc</a> <a id="7302" class="Symbol" href="./">(</a><a id="7303" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7306" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> <a id="7308" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a><a id="7309" class="Symbol" href="./">)</a> <a id="7311" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7313" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7316" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> <a id="7318" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a> <a id="7320" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a> 
+<a id="7323" class="Symbol" href="./">_</a> <a id="7325" class="Symbol" href="./">=</a> <a id="7327" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 
-<a id="7268" href="./NONaturals.html#7268" class="Function">_</a> <a id="7270" class="Symbol" href="./">:</a> <a id="7272" href="./NONaturals.html#7040" class="Function">inc</a> <a id="7276" class="Symbol" href="./">(</a><a id="7277" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7280" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> <a id="7282" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a> <a id="7284" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a><a id="7285" class="Symbol" href="./">)</a> <a id="7287" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7289" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7292" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> <a id="7294" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a> <a id="7296" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> 
-<a id="7299" class="Symbol" href="./">_</a> <a id="7301" class="Symbol" href="./">=</a> <a id="7303" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7334" href="./NONaturals.html#7334" class="Function">_</a> <a id="7336" class="Symbol" href="./">:</a> <a id="7338" href="./NONaturals.html#7106" class="Function">inc</a> <a id="7342" class="Symbol" href="./">(</a><a id="7343" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7346" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> <a id="7348" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a> <a id="7350" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a><a id="7351" class="Symbol" href="./">)</a> <a id="7353" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7355" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7358" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> <a id="7360" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a> <a id="7362" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> 
+<a id="7365" class="Symbol" href="./">_</a> <a id="7367" class="Symbol" href="./">=</a> <a id="7369" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 </pre>
 <p>使用以上定义，再定义一对函数用于在两种表示间的转换：</p>
 <pre class="language-text">to : ℕ → Bin 
 from : Bin → ℕ 
 </pre>
 <p>对于前者，用没有前导零的比特串来表示正数，并用<code>⟨⟩ O</code>表示零。验证这两个函数都能对零到四给出正确结果。</p>
-<pre class="Agda"><a id="to" href="./"></a><a id="7446" href="./NONaturals.html#7446" class="Function">to</a> <a id="7449" class="Symbol" href="./">:</a> <a id="7451" href="./NONaturals.html#584" class="Datatype">ℕ</a> <a id="7453" class="Symbol" href="./">→</a> <a id="7455" href="./NONaturals.html#6696" class="Datatype">Bin</a> 
-<a id="7460" href="./NONaturals.html#7446" class="Function">to</a> <a id="7463" href="./NONaturals.html#603" class="InductiveConstructor">zero</a> <a id="7468" class="Symbol" href="./">=</a> <a id="7470" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7473" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a> 
-<a id="7476" href="./NONaturals.html#7446" class="Function">to</a> <a id="7479" class="Symbol" href="./">(</a><a id="7480" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="7484" href="./NONaturals.html#7484" class="Bound">n</a><a id="7485" class="Symbol" href="./">)</a> <a id="7487" class="Symbol" href="./">=</a> <a id="7489" href="./NONaturals.html#7040" class="Function">inc</a> <a id="7493" class="Symbol" href="./">(</a><a id="7494" href="./NONaturals.html#7446" class="Function">to</a> <a id="7497" href="./NONaturals.html#7484" class="Bound">n</a><a id="7498" class="Symbol" href="./">)</a>
+<pre class="Agda"><a id="to" href="./"></a><a id="7512" href="./NONaturals.html#7512" class="Function">to</a> <a id="7515" class="Symbol" href="./">:</a> <a id="7517" href="./NONaturals.html#611" class="Datatype">ℕ</a> <a id="7519" class="Symbol" href="./">→</a> <a id="7521" href="./NONaturals.html#6762" class="Datatype">Bin</a> 
+<a id="7526" href="./NONaturals.html#7512" class="Function">to</a> <a id="7529" href="./NONaturals.html#630" class="InductiveConstructor">zero</a> <a id="7534" class="Symbol" href="./">=</a> <a id="7536" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7539" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a> 
+<a id="7542" href="./NONaturals.html#7512" class="Function">to</a> <a id="7545" class="Symbol" href="./">(</a><a id="7546" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="7550" href="./NONaturals.html#7550" class="Bound">n</a><a id="7551" class="Symbol" href="./">)</a> <a id="7553" class="Symbol" href="./">=</a> <a id="7555" href="./NONaturals.html#7106" class="Function">inc</a> <a id="7559" class="Symbol" href="./">(</a><a id="7560" href="./NONaturals.html#7512" class="Function">to</a> <a id="7563" href="./NONaturals.html#7550" class="Bound">n</a><a id="7564" class="Symbol" href="./">)</a>
 
-<a id="from" href="./"></a><a id="7501" href="./NONaturals.html#7501" class="Function">from</a> <a id="7506" class="Symbol" href="./">:</a> <a id="7508" href="./NONaturals.html#6696" class="Datatype">Bin</a> <a id="7512" class="Symbol" href="./">→</a> <a id="7514" href="./NONaturals.html#584" class="Datatype">ℕ</a> 
-<a id="7517" href="./NONaturals.html#7501" class="Function">from</a> <a id="7522" class="Symbol" href="./">(</a><a id="7523" href="./NONaturals.html#7523" class="Bound">pre</a> <a id="7527" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a><a id="7528" class="Symbol" href="./">)</a> <a id="7530" class="Symbol" href="./">=</a> <a id="7532" href="./NONaturals.html#616" class="InductiveConstructor">suc</a> <a id="7536" class="Symbol" href="./">(</a><a id="7537" class="Number" href="./">2</a> <a id="7539" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="7541" href="./NONaturals.html#7501" class="Function">from</a> <a id="7546" href="./NONaturals.html#7523" class="Bound">pre</a><a id="7549" class="Symbol" href="./">)</a>
-<a id="7551" href="./NONaturals.html#7501" class="Function">from</a> <a id="7556" class="Symbol" href="./">(</a><a id="7557" href="./NONaturals.html#7557" class="Bound">pre</a> <a id="7561" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a><a id="7562" class="Symbol" href="./">)</a> <a id="7564" class="Symbol" href="./">=</a> <a id="7566" class="Number" href="./">2</a> <a id="7568" href="./NONaturals.html#3635" class="Primitive Operator">*</a> <a id="7570" href="./NONaturals.html#7501" class="Function">from</a> <a id="7575" href="./NONaturals.html#7557" class="Bound">pre</a> 
-<a id="7580" href="./NONaturals.html#7501" class="Function">from</a> <a id="7585" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7588" class="Symbol" href="./">=</a> <a id="7590" href="./NONaturals.html#603" class="InductiveConstructor">zero</a> 
+<a id="from" href="./"></a><a id="7567" href="./NONaturals.html#7567" class="Function">from</a> <a id="7572" class="Symbol" href="./">:</a> <a id="7574" href="./NONaturals.html#6762" class="Datatype">Bin</a> <a id="7578" class="Symbol" href="./">→</a> <a id="7580" href="./NONaturals.html#611" class="Datatype">ℕ</a> 
+<a id="7583" href="./NONaturals.html#7567" class="Function">from</a> <a id="7588" class="Symbol" href="./">(</a><a id="7589" href="./NONaturals.html#7589" class="Bound">pre</a> <a id="7593" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a><a id="7594" class="Symbol" href="./">)</a> <a id="7596" class="Symbol" href="./">=</a> <a id="7598" href="./NONaturals.html#643" class="InductiveConstructor">suc</a> <a id="7602" class="Symbol" href="./">(</a><a id="7603" class="Number" href="./">2</a> <a id="7605" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="7607" href="./NONaturals.html#7567" class="Function">from</a> <a id="7612" href="./NONaturals.html#7589" class="Bound">pre</a><a id="7615" class="Symbol" href="./">)</a>
+<a id="7617" href="./NONaturals.html#7567" class="Function">from</a> <a id="7622" class="Symbol" href="./">(</a><a id="7623" href="./NONaturals.html#7623" class="Bound">pre</a> <a id="7627" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a><a id="7628" class="Symbol" href="./">)</a> <a id="7630" class="Symbol" href="./">=</a> <a id="7632" class="Number" href="./">2</a> <a id="7634" href="./NONaturals.html#3707" class="Primitive Operator">*</a> <a id="7636" href="./NONaturals.html#7567" class="Function">from</a> <a id="7641" href="./NONaturals.html#7623" class="Bound">pre</a> 
+<a id="7646" href="./NONaturals.html#7567" class="Function">from</a> <a id="7651" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7654" class="Symbol" href="./">=</a> <a id="7656" href="./NONaturals.html#630" class="InductiveConstructor">zero</a> 
 
-<a id="7597" href="./NONaturals.html#7597" class="Function">_</a> <a id="7599" class="Symbol" href="./">:</a> <a id="7601" href="./NONaturals.html#7446" class="Function">to</a> <a id="7604" class="Number" href="./">0</a> <a id="7606" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7608" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7611" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a> 
-<a id="7614" class="Symbol" href="./">_</a> <a id="7616" class="Symbol" href="./">=</a> <a id="7618" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7663" href="./NONaturals.html#7663" class="Function">_</a> <a id="7665" class="Symbol" href="./">:</a> <a id="7667" href="./NONaturals.html#7512" class="Function">to</a> <a id="7670" class="Number" href="./">0</a> <a id="7672" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7674" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7677" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a> 
+<a id="7680" class="Symbol" href="./">_</a> <a id="7682" class="Symbol" href="./">=</a> <a id="7684" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 
-<a id="7625" href="./NONaturals.html#7625" class="Function">_</a> <a id="7627" class="Symbol" href="./">:</a> <a id="7629" href="./NONaturals.html#7446" class="Function">to</a> <a id="7632" class="Number" href="./">1</a> <a id="7634" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7636" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7639" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> 
-<a id="7642" class="Symbol" href="./">_</a> <a id="7644" class="Symbol" href="./">=</a> <a id="7646" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7691" href="./NONaturals.html#7691" class="Function">_</a> <a id="7693" class="Symbol" href="./">:</a> <a id="7695" href="./NONaturals.html#7512" class="Function">to</a> <a id="7698" class="Number" href="./">1</a> <a id="7700" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7702" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7705" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> 
+<a id="7708" class="Symbol" href="./">_</a> <a id="7710" class="Symbol" href="./">=</a> <a id="7712" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 
-<a id="7653" href="./NONaturals.html#7653" class="Function">_</a> <a id="7655" class="Symbol" href="./">:</a> <a id="7657" href="./NONaturals.html#7446" class="Function">to</a> <a id="7660" class="Number" href="./">2</a> <a id="7662" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7664" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7667" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> <a id="7669" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a> 
-<a id="7672" class="Symbol" href="./">_</a> <a id="7674" class="Symbol" href="./">=</a> <a id="7676" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7719" href="./NONaturals.html#7719" class="Function">_</a> <a id="7721" class="Symbol" href="./">:</a> <a id="7723" href="./NONaturals.html#7512" class="Function">to</a> <a id="7726" class="Number" href="./">2</a> <a id="7728" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7730" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7733" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> <a id="7735" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a> 
+<a id="7738" class="Symbol" href="./">_</a> <a id="7740" class="Symbol" href="./">=</a> <a id="7742" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 
-<a id="7683" href="./NONaturals.html#7683" class="Function">_</a> <a id="7685" class="Symbol" href="./">:</a> <a id="7687" href="./NONaturals.html#7446" class="Function">to</a> <a id="7690" class="Number" href="./">3</a> <a id="7692" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7694" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7697" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> <a id="7699" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> 
-<a id="7702" class="Symbol" href="./">_</a> <a id="7704" class="Symbol" href="./">=</a> <a id="7706" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7749" href="./NONaturals.html#7749" class="Function">_</a> <a id="7751" class="Symbol" href="./">:</a> <a id="7753" href="./NONaturals.html#7512" class="Function">to</a> <a id="7756" class="Number" href="./">3</a> <a id="7758" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7760" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7763" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> <a id="7765" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> 
+<a id="7768" class="Symbol" href="./">_</a> <a id="7770" class="Symbol" href="./">=</a> <a id="7772" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 
-<a id="7713" href="./NONaturals.html#7713" class="Function">_</a> <a id="7715" class="Symbol" href="./">:</a> <a id="7717" href="./NONaturals.html#7446" class="Function">to</a> <a id="7720" class="Number" href="./">4</a> <a id="7722" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7724" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7727" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> <a id="7729" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a> <a id="7731" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a> 
-<a id="7734" class="Symbol" href="./">_</a> <a id="7736" class="Symbol" href="./">=</a> <a id="7738" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7779" href="./NONaturals.html#7779" class="Function">_</a> <a id="7781" class="Symbol" href="./">:</a> <a id="7783" href="./NONaturals.html#7512" class="Function">to</a> <a id="7786" class="Number" href="./">4</a> <a id="7788" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7790" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7793" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> <a id="7795" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a> <a id="7797" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a> 
+<a id="7800" class="Symbol" href="./">_</a> <a id="7802" class="Symbol" href="./">=</a> <a id="7804" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 
-<a id="7745" href="./NONaturals.html#7745" class="Function">_</a> <a id="7747" class="Symbol" href="./">:</a> <a id="7749" href="./NONaturals.html#7501" class="Function">from</a> <a id="7754" class="Symbol" href="./">(</a><a id="7755" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7758" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a><a id="7759" class="Symbol" href="./">)</a> <a id="7761" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7763" class="Number" href="./">0</a>
-<a id="7765" class="Symbol" href="./">_</a> <a id="7767" class="Symbol" href="./">=</a> <a id="7769" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7811" href="./NONaturals.html#7811" class="Function">_</a> <a id="7813" class="Symbol" href="./">:</a> <a id="7815" href="./NONaturals.html#7567" class="Function">from</a> <a id="7820" class="Symbol" href="./">(</a><a id="7821" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7824" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a><a id="7825" class="Symbol" href="./">)</a> <a id="7827" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7829" class="Number" href="./">0</a>
+<a id="7831" class="Symbol" href="./">_</a> <a id="7833" class="Symbol" href="./">=</a> <a id="7835" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 
-<a id="7776" href="./NONaturals.html#7776" class="Function">_</a> <a id="7778" class="Symbol" href="./">:</a> <a id="7780" href="./NONaturals.html#7501" class="Function">from</a> <a id="7785" class="Symbol" href="./">(</a><a id="7786" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7789" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a><a id="7790" class="Symbol" href="./">)</a> <a id="7792" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7794" class="Number" href="./">1</a>
-<a id="7796" class="Symbol" href="./">_</a> <a id="7798" class="Symbol" href="./">=</a> <a id="7800" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7842" href="./NONaturals.html#7842" class="Function">_</a> <a id="7844" class="Symbol" href="./">:</a> <a id="7846" href="./NONaturals.html#7567" class="Function">from</a> <a id="7851" class="Symbol" href="./">(</a><a id="7852" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7855" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a><a id="7856" class="Symbol" href="./">)</a> <a id="7858" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7860" class="Number" href="./">1</a>
+<a id="7862" class="Symbol" href="./">_</a> <a id="7864" class="Symbol" href="./">=</a> <a id="7866" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 
-<a id="7807" href="./NONaturals.html#7807" class="Function">_</a> <a id="7809" class="Symbol" href="./">:</a> <a id="7811" href="./NONaturals.html#7501" class="Function">from</a> <a id="7816" class="Symbol" href="./">(</a><a id="7817" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7820" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> <a id="7822" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a><a id="7823" class="Symbol" href="./">)</a> <a id="7825" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7827" class="Number" href="./">2</a>
-<a id="7829" class="Symbol" href="./">_</a> <a id="7831" class="Symbol" href="./">=</a> <a id="7833" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7873" href="./NONaturals.html#7873" class="Function">_</a> <a id="7875" class="Symbol" href="./">:</a> <a id="7877" href="./NONaturals.html#7567" class="Function">from</a> <a id="7882" class="Symbol" href="./">(</a><a id="7883" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7886" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> <a id="7888" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a><a id="7889" class="Symbol" href="./">)</a> <a id="7891" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7893" class="Number" href="./">2</a>
+<a id="7895" class="Symbol" href="./">_</a> <a id="7897" class="Symbol" href="./">=</a> <a id="7899" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 
-<a id="7840" href="./NONaturals.html#7840" class="Function">_</a> <a id="7842" class="Symbol" href="./">:</a> <a id="7844" href="./NONaturals.html#7501" class="Function">from</a> <a id="7849" class="Symbol" href="./">(</a><a id="7850" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7853" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> <a id="7855" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a><a id="7856" class="Symbol" href="./">)</a> <a id="7858" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7860" class="Number" href="./">3</a> 
-<a id="7863" class="Symbol" href="./">_</a> <a id="7865" class="Symbol" href="./">=</a> <a id="7867" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7906" href="./NONaturals.html#7906" class="Function">_</a> <a id="7908" class="Symbol" href="./">:</a> <a id="7910" href="./NONaturals.html#7567" class="Function">from</a> <a id="7915" class="Symbol" href="./">(</a><a id="7916" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7919" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> <a id="7921" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a><a id="7922" class="Symbol" href="./">)</a> <a id="7924" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7926" class="Number" href="./">3</a> 
+<a id="7929" class="Symbol" href="./">_</a> <a id="7931" class="Symbol" href="./">=</a> <a id="7933" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 
-<a id="7874" href="./NONaturals.html#7874" class="Function">_</a> <a id="7876" class="Symbol" href="./">:</a> <a id="7878" href="./NONaturals.html#7501" class="Function">from</a> <a id="7883" class="Symbol" href="./">(</a><a id="7884" href="./NONaturals.html#6717" class="InductiveConstructor">⟨⟩</a> <a id="7887" href="./NONaturals.html#6751" class="InductiveConstructor Operator">I</a> <a id="7889" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a> <a id="7891" href="./NONaturals.html#6731" class="InductiveConstructor Operator">O</a><a id="7892" class="Symbol" href="./">)</a> <a id="7894" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7896" class="Number" href="./">4</a> 
-<a id="7899" class="Symbol" href="./">_</a> <a id="7901" class="Symbol" href="./">=</a> <a id="7903" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
+<a id="7940" href="./NONaturals.html#7940" class="Function">_</a> <a id="7942" class="Symbol" href="./">:</a> <a id="7944" href="./NONaturals.html#7567" class="Function">from</a> <a id="7949" class="Symbol" href="./">(</a><a id="7950" href="./NONaturals.html#6783" class="InductiveConstructor">⟨⟩</a> <a id="7953" href="./NONaturals.html#6817" class="InductiveConstructor Operator">I</a> <a id="7955" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a> <a id="7957" href="./NONaturals.html#6797" class="InductiveConstructor Operator">O</a><a id="7958" class="Symbol" href="./">)</a> <a id="7960" href="./Agda.Builtin.Equality.html#150" class="Datatype Operator">≡</a> <a id="7962" class="Number" href="./">4</a> 
+<a id="7965" class="Symbol" href="./">_</a> <a id="7967" class="Symbol" href="./">=</a> <a id="7969" href="./Agda.Builtin.Equality.html#207" class="InductiveConstructor">refl</a> 
 </pre>
 </div></body></html>
     </div>
