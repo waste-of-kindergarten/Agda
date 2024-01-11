@@ -133,7 +133,7 @@ inv-z≤n z≤n = refl
 
 对于二元关系`≤`(注意这里不是小于等于而是泛指二元关系)，有一些常见的性质。
 
-- ***自反性(Reflexive)*** : 对所有的`n`，关系`n ≤ n`成立 
+- ***自反性(Reflexive)*** ： 对所有的`n`，关系`n ≤ n`成立 
 - ***传递性(Transitive)*** ： 对于所有的`m`,`n`和`p`，如果`m ≤ n`和`n ≤ p`成立，那么`m ≤ n`也成立
 - ***反对称性(Anti-symmetric)*** ： 对于所有的`m`和`n`，如果`m ≤ n`和`n ≤ m`同时成立，那么`m ≡ n`成立
 - ***完全性(Total)*** ： 对于所有的`m`和`n`，`m ≤ n`或者`n ≤ m`成立
@@ -308,7 +308,7 @@ data _<_ : ℕ → ℕ → Set where
         → suc m < suc n 
 ```
 
-小于关系不是自反的，但满足传递性，另外严格不等关系满足类似完全性的性质 -- ***三分律(Trichotomy)***， 即对于任意的`m`和`n`，`m < n`，`m ≡ n`或者`m > n`三者有且仅有一个成立。除此之外，小于关系对于加法也满足单调性。
+小于关系不是自反的，但满足传递性，另外严格不等关系满足类似完全性的性质 -- ***三分律(Trichotomy)***， 即对于任意的`m`和`n`，`m < n`，`m ≡ n`或者`n < m`三者有且仅有一个成立。除此之外，小于关系对于加法也满足单调性。
 
 ## 奇偶性
 
@@ -381,10 +381,346 @@ o+e≡o (suc em) en = suc (e+e≡e em en)
 --                                   +-monoʳ-≤; +-monoˡ-≤; +-mono-≤)
 ``` 
 
-## 附记： 参数化数据类型与索引数据类型
+## 附记： 参数化数据类型(Parametrized datatypes)与索引数据类型(Indexed datatypes)
+
+本章中使用了带参数的数据类型（如`Total`，`even`，`odd`）和索引数据类型（如`_≤_`，`_<_`），我们以`Total`为例，对比参数化数据类型和索引数据类型。
+
+前面已经给出了`Total`的定义，为了方便这里用`Totalₚ`表示参数化数据类型的`Total`定义；并用`Totalᵢ`表示索引数据类型的定义。
+
+```agda 
+data Totalᵣ (m n : ℕ) : Set where 
+
+    forwardᵣ : 
+        m ≤ n 
+        ----------- 
+        → Totalᵣ m n 
+
+    flippedᵣ : 
+        n ≤ m 
+        ----------- 
+        → Totalᵣ m n  
+
+data Totalᵢ : ℕ → ℕ → Set where 
+
+    forwardᵢ : ∀ {m n : ℕ}
+        → m ≤ n 
+        -------------
+        → Totalᵢ m n 
+
+    flippedᵢ : ∀ {m n : ℕ}
+        → m ≤ n 
+        ------------- 
+        → Totalᵢ m n  
+```
+
+参数化数据类型在声明数据类型时就已经确定这个数据类型的参数是什么（在`Totalᵣ`中的`m n : ℕ`）；而索引数据类型在声明数据类型时只给出类型的参数类型（在`Totalᵢ`中的`ℕ → ℕ → Set`），这些参数需要进一步在构造子中明确。因此相比于参数化数据类型，索引数据类型允许不同的构造子返回类型中的参数类型不同，而参数化数据类型却不能做到这一点。如`_≤_`的定义中，`z≤n`构造子的返回类型为`zero ≤ n`而`s≤s`构造子的返回类型则为`suc m ≤ suc n`，因此只能定义成索引数据类型。
+
+然而当使用参数化数据类型与索引数据类型均可以定义时（例如`Total`的定义），应当尽可能地使用参数化数据类型。一方面参数化数据类型书写更短，便于阅读；另一方面，参数化数据类型有利于帮助Agda停机的检查器。
+
+实际上，可以将参数和索引混合起来使用进行数据类型的定义，一个总的形式如下：
+
+    data D (x₁ : P₁) ... (xₖ : Pₖ) : (y₁ : Q₁) → ... → (yₗ : Qₗ) → Set ℓ where
+    c₁ : A₁
+    ...
+    cₙ : Aₙ
+
+其中`A₁`,...,`Aₙ`类型为：
+
+    (z₁ : B₁) → ... → (zₘ : Bₘ) → D x₁ ... xₖ t₁ ... tₗ
+
+后续章节我们会看到混合使用的场景。
+
 
 ## 习题参考
 
+### 练习`orderings`(实践)
+
+给出一个不是偏序的预序的例子。
+
+```txt
+复数域ℂ上模长的不等关系满足预序但不满足偏序。
+
+（满足）自反性： 实数上的不等关系满足自反性，因此模长的不等关系也满足自反性
+（满足）传递性： 实数上的不等关系满足传递性，因此模长的不等关系也满足传递性
+（不满足）反对称性： 模长相同的复数有无穷多个，它们在复平面上形成一个圆，从而不成立
+``` 
+
+给出一个不是全序的偏序的例子。
+
+```txt 
+集合上的子集关系⊂。
+
+（满足）自反性：一个集合必然是自己的子集。
+（满足）传递性：包含关系的传递性。
+（满足）反对称性：互相包含的集合是相等的。
+（不满足）完全性：差集不为空的情况，不存在包含关系。
+``` 
+
+### 练习`≤-antisym-cases`(实践)
+
+上面的证明中省略了一个参数是`z≤n`，另一个参数是`s≤s`的情况。为什么可以省略这种情况呢？
+
+```txt 
+z≤n 表明m的模式为zero，而 s≤s 表明n的模式为suc _，但这个情况是不可能的，Agda可以自动排除这种情况。
+``` 
+
+### 练习`*-mono-≤`(延伸)
+
+证明乘法对于小于等于是单调的。
+
+```agda 
+open import Data.Nat using (_*_)
+open import Data.Nat.Properties using (*-comm)
+
+*-monoʳ-≤ : ∀ (n p q : ℕ)
+    → p ≤ q 
+    ----------------
+    → n * p ≤ n * q 
+*-monoʳ-≤ zero p q _ = z≤n
+*-monoʳ-≤ (suc n) p q p≤q = +-mono-≤ p q (n * p) (n * q) p≤q ((*-monoʳ-≤ n p q p≤q)) 
+
+*-monoˡ-≤ : ∀ (m n p : ℕ) 
+    → m ≤ n 
+    ----------------
+    → m * p ≤ n * p 
+*-monoˡ-≤ m n p m≤n rewrite *-comm m p 
+    | *-comm n p = *-monoʳ-≤ p m n m≤n 
+
+*-mono-≤ : ∀ (m n p q : ℕ)
+    → m ≤ n 
+    → p ≤ q 
+    ----------------
+    → m * p ≤ n * q 
+*-mono-≤ m n p q m≤n p≤q = 
+    ≤-trans (*-monoˡ-≤ m n p m≤n) (*-monoʳ-≤ n p q p≤q) 
+```
+
+### 练习`<-trans`(推荐)
+
+证明严格不等式是传递的。请直接证明。
+
+```agda 
+<-trans : ∀ {m n p : ℕ}
+    → m < n 
+    → n < p 
+    --------
+    → m < p 
+<-trans  z<s (s<s n<p) = z<s
+<-trans  (s<s m<n) (s<s n<p) = 
+    s<s (<-trans m<n n<p) 
+``` 
+
+### 练习`trichotomy`(实践)
+
+证明严格不等关系满足弱化的三元律，证明对于任意`m`和`n`，下列命题有一条成立（不必证明互斥）：
+
+- `m < n`
+- `m ≡ n`
+- `n < m`
+
+（请类比完全性的证明）
+
+```agda 
+data Trichotomy (m n : ℕ) : Set where 
+
+    forward : 
+        m < n 
+        ----------------- 
+        → Trichotomy m n 
+    
+    refl : 
+        m ≡ n 
+        -----------------
+        → Trichotomy m n 
+
+    flipped : 
+        n < m 
+        -----------------
+        → Trichotomy m n
+
+<-trichotomy : ∀ (m n : ℕ) → Trichotomy m n 
+<-trichotomy zero zero = refl refl
+<-trichotomy zero (suc n) = forward z<s
+<-trichotomy (suc m) zero = flipped z<s
+<-trichotomy (suc m) (suc n) with <-trichotomy m n 
+...                             | forward m<n = forward (s<s m<n)  
+...                             | refl m≡n = refl (cong suc m≡n) 
+...                             | flipped n<m = flipped (s<s n<m) 
+``` 
+
+### 练习`+-mono-<`实践
+
+证明加法对于严格不等关系是单调的。正如不等关系中那样，你可以需要额外的定义。
+
+```agda 
++-monoʳ-< : ∀ (n p q : ℕ)
+        → p < q 
+        ----------------
+        → n + p < n + q 
++-monoʳ-< zero p q p<q = p<q
++-monoʳ-< (suc n) p q p<q = s<s (+-monoʳ-< n p q p<q)
+
++-monoˡ-< : ∀ (m n p : ℕ)
+        → m < n 
+        ----------------
+        → m + p < n + p 
++-monoˡ-< m n p m<n rewrite +-comm m p 
+                    | +-comm n p = +-monoʳ-< p m n m<n
+
++-mono-< : ∀ (m n p q : ℕ) 
+        → m < n 
+        → p < q 
+        ----------------
+        → m + p < n + q 
++-mono-< m n p q m<n p<q = 
+    <-trans (+-monoˡ-< m n p m<n) (+-monoʳ-< n p q p<q) 
+``` 
+
+### 练习`+-iff-<`(实践)
+
+证明`suc m ≤ n`蕴含了`m < n`，及其逆命题。
+
+```agda 
++-iff-<→ : ∀ (m n : ℕ) 
+        → suc m ≤ n 
+        ------------
+        → m < n 
++-iff-<→ zero (suc n) (s≤s sm≤n) = z<s
++-iff-<→ (suc m) (suc n) (s≤s sm≤n) = s<s (+-iff-<→ m n sm≤n) 
+
++-iff-<← : ∀ (m n : ℕ) 
+        → m < n 
+        ------------
+        → suc m ≤ n 
++-iff-<← zero (suc n) m<n = s≤s z≤n
++-iff-<← (suc m) (suc n) (s<s m<n) = s≤s (+-iff-<← m n m<n) 
+``` 
+
+### 练习`<-trans-revisited`(实践)
+
+用另外一种方法证明严格不等是传递的，使用之前证明的不等关系和严格不等关系的练习，以及不等关系的传递性。
+
+```agda 
+<-trans-revisited : ∀ {m n p : ℕ} 
+                → m < n 
+                → n < p 
+                -------- 
+                → m < p 
+<-trans-revisited {m} {n} {p} m<n n<p = 
+    +-iff-<→ m p (≤-trans 
+    (≤-trans (+-iff-<← m n m<n) (+-monoˡ-≤ 0 1 n z≤n)) 
+    (+-iff-<← n p n<p)) 
+``` 
+
+> 提示： 对于复杂的程序，应当充分利用交互证明的编成技巧
+
+### 练习`o+o≡e`(延伸)
+
+证明两个奇数之和为偶数。
+
+```agda 
+o+o≡e : ∀ {m n : ℕ}
+    → odd m 
+    → odd n 
+    → even (m + n)
+o+o≡e {suc m} {n} (suc em) on rewrite +-comm m n = suc (o+e≡o on em) 
+``` 
 
 
+### 练习`Bin-predicates`(延伸)
 
+回忆我们在练习Bin中定义了一个数据类型`Bin`来用二进制字符串表示自然数，这个表达方式不是唯一的，因为我们在开头加任意个0。因此11可以由以下方法表示：
+
+    ⟨⟩ I O I I 
+    ⟨⟩ O O I O I I 
+
+定义一个谓词
+
+    Can : Bin → Set 
+
+其在一个二进制字符串的表示是标准的(Canonical)时成立，表示它没有开头的0.在两个11的表达方式中，第一个是标准的，而第二个不是。在定义这个谓词时，你需要一个辅助谓词：
+
+    One : Bin → Set 
+
+其仅在一个二进制字符串开头为1时成立。一个二进制字符串是标准的，如果它开头是1（表示一个正数），或者它仅是一个0（表示0）。
+
+证明递增可以保持标准性。
+
+    Can b 
+    --------------- 
+    Can (inc b)
+
+证明从自然数转换成的二进制字符串是标准的。
+
+    ------------ 
+    Can (to n)
+
+证明将一个标准的二进制字符串转换成自然数之后，再转换回二进制字符串与原二进制字符串相同。
+
+    Can b 
+    -------------- 
+    to (from b) ≡ b 
+
+（提示： 对于每一条习题，先从`One`的性质开始。此外，你或许还需要证明若`One b`成立，则`1`小于或等于`from b`的结果。）
+
+```agda 
+data Bin : Set where 
+    ⟨⟩ : Bin 
+    _O : Bin → Bin 
+    _I : Bin → Bin 
+
+inc : Bin → Bin 
+inc (pre I) = (inc pre) O
+inc (pre O) = pre I 
+inc ⟨⟩ = ⟨⟩ I
+
+to : ℕ → Bin 
+to zero = ⟨⟩ O 
+to (suc n) = inc (to n)
+
+from : Bin → ℕ 
+from (pre I) = suc (2 * from pre)
+from (pre O) = 2 * from pre 
+from ⟨⟩ = zero 
+
+data One : Bin → Set where 
+    one₀ : One (⟨⟩ I) 
+    one₁₀ : ∀ {b : Bin}
+        →  One b  
+        → One (b O)
+    one₁₁ : ∀ {b : Bin}
+        → One b 
+        → One (b I)
+
+data Can : Bin → Set where 
+    zero : Can (⟨⟩ O) 
+    one : ∀ {b : Bin}
+        → One b 
+        → Can b 
+
+inc-one : ∀ {b : Bin} → One b → One (inc b)
+inc-one one₀ = one₁₀ one₀
+inc-one (one₁₀ o) = one₁₁ o
+inc-one (one₁₁ o) = one₁₀ (inc-one o) 
+
+inc-can : ∀ {b : Bin} → Can b → Can (inc b)
+inc-can zero = one one₀
+inc-can (one o) = one (inc-one o)
+
+to-can : ∀ (n : ℕ) → Can (to n)
+to-can zero = zero
+to-can (suc n) = inc-can (to-can n)
+
+helper : ∀ {b : Bin} → One b → 1 ≤ from b 
+helper one₀ = s≤s z≤n
+helper {b O} (one₁₀ o) rewrite +-identityʳ (from b) = 
+    +-mono-≤ 0 (from b) 1 (from b) (≤-trans z≤n (helper o)) (helper o)
+helper {b I} (one₁₁ o) rewrite +-identityʳ (from b) = s≤s z≤n 
+
+{-
+to-from-can : ∀ {b : Bin} → Can b → to (from b) ≡ b 
+to-from-can zero = refl
+to-from-can {b} (one o) = {!   !}
+-}
+-- 尚未做出
+```   
