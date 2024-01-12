@@ -7,4 +7,5 @@
 1. [自然数](./NONaturals.html)
 2. [归纳证明](./NOInduction.html)
 3. [关系](./NORelations.html)
-4. 未完待续
+4. [相等性与等式推理](./NOEquality.html)
+5. 未完待续

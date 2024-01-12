@@ -683,6 +683,54 @@ from (pre I) = suc (2 * from pre)
 from (pre O) = 2 * from pre 
 from ⟨⟩ = zero 
 
+_+ᵇ_ : Bin → Bin → Bin 
+b₁ +ᵇ b₂ = to (from b₁ + from b₂) 
+
+open import Data.Nat.Properties using (+-assoc; +-identityʳ; +-suc; +-comm) 
+open Eq using (sym)
+
+Bin-laws₁ : ∀ (b : Bin) → from (inc b) ≡ suc (from b)
+Bin-laws₁ ⟨⟩ = refl
+Bin-laws₁ (b O) = refl 
+Bin-laws₁ (b I) rewrite Bin-laws₁ b 
+    | +-identityʳ (from b)
+    | +-suc (from b) (from b)  = refl
+
+Bin-laws₃ : ∀ (n : ℕ) → from (to n) ≡ n 
+Bin-laws₃ zero = refl
+Bin-laws₃ (suc n) rewrite Bin-laws₁ (to n) 
+    | Bin-laws₃ n = refl
+
+lemma-+ᵇ : ∀ (m n : ℕ) → to (m + n) ≡ to m +ᵇ to n 
+lemma-+ᵇ zero n rewrite Bin-laws₃ n = refl
+lemma-+ᵇ (suc m) n rewrite lemma-+ᵇ m n | Bin-laws₁ (to m) = refl 
+
+lemma-+ᵇ-inc : ∀ (b₁ b₂ : Bin) → inc (b₁ +ᵇ b₂) ≡ inc b₁ +ᵇ b₂
+lemma-+ᵇ-inc ⟨⟩ b₂ = refl
+lemma-+ᵇ-inc (b₁ O) b₂ = refl
+lemma-+ᵇ-inc (b₁ I) b₂ = {!   !}   
+
++ᵇ-linear-+ : ∀ (b₁ b₂ : Bin) → b₁ +ᵇ b₂ ≡ to (from b₁) +ᵇ to (from b₂)
++ᵇ-linear-+ ⟨⟩ b₂ rewrite Bin-laws₃ (from b₂)  = refl
++ᵇ-linear-+ (b₁ O) b₂ rewrite +-identityʳ(from b₁) 
+                        | Bin-laws₃ (from b₂) 
+                        | Bin-laws₃ (from b₁ + from b₁)  = refl
++ᵇ-linear-+ (b₁ I) b₂ rewrite +-identityʳ (from b₁) 
+                        | Bin-laws₁ (to (from b₁ + from b₁)) 
+                        | +ᵇ-linear-+ b₁ b₂ 
+                        | Bin-laws₃(from b₁ + from b₁) 
+                        | Bin-laws₃ (from b₂) = refl 
+
+
+
+double-bI-zero : ∀(b : Bin) → ⟨⟩ O ≡ b → ⟨⟩ O ≡ b 
+double-bI-zero b ⟨⟩O≡b with b | ⟨⟩O≡b
+...               | ⟨⟩ O | refl = refl
+
+double-bI-suc : ∀ (n : ℕ) (b : Bin) → to (suc n) ≡ b → to (2 * suc n) ≡ b O 
+double-bI-suc n b tosucn≡b rewrite +-identityʳ n |  +-suc n n | lemma-+ᵇ n n | lemma-+ᵇ (from (to n)) (from (to n)) = {!   !} 
+
+
 data One : Bin → Set where 
     one₀ : One (⟨⟩ I) 
     one₁₀ : ∀ {b : Bin}
@@ -717,10 +765,17 @@ helper {b O} (one₁₀ o) rewrite +-identityʳ (from b) =
     +-mono-≤ 0 (from b) 1 (from b) (≤-trans z≤n (helper o)) (helper o)
 helper {b I} (one₁₁ o) rewrite +-identityʳ (from b) = s≤s z≤n 
 
-{-
+open Eq using (inspect)
+
+
+
 to-from-can : ∀ {b : Bin} → Can b → to (from b) ≡ b 
 to-from-can zero = refl
-to-from-can {b} (one o) = {!   !}
--}
--- 尚未做出
-```   
+to-from-can (one one₀) = refl
+to-from-can {b I} (one o) = {!   !}
+to-from-can {b O} (one o) = {!   !} 
+--to-from-can {b I} (one o) rewrite +-identityʳ (from b) |  +ᵇ-linear-+ b b = {!   !} 
+--to-from-can {b = b₁ O} (one (one₁₀ o)) rewrite +-identityʳ (from b₁) = {!   !}  
+  
+-- 尚未做出  
+```      

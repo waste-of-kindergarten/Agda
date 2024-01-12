@@ -289,6 +289,7 @@ _ =
 +-comm′ : ∀ (m n : ℕ) → m + n ≡ n + m 
 +-comm′ zero n rewrite +-identityʳ′ n = refl
 +-comm′ (suc m) n rewrite +-comm′ m n | +-suc′ n m = refl
+-- 使用竖线分隔多个改写，依次执行
 
 +-comm-simple′ : ∀ (m n : ℕ) → m + n ≡ n + m 
 +-comm-simple′ m zero rewrite +-identityʳ′ m = refl
