@@ -8,4 +8,5 @@
 2. [归纳证明](./NOInduction.html)
 3. [关系](./NORelations.html)
 4. [相等性与等式推理](./NOEquality.html)
-5. 未完待续
+5. [同构与映射](./NOIsomorphism.html)
+6. 未完待续
