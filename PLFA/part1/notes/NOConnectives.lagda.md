@@ -27,7 +27,7 @@ open import plfa.part1.Isomorphism using (_≃_; _≲_; extensionality)
 
 ## 柯里-霍华德同构
 
-> 这里引用Philip Wadler的文章 <<Propositions as Types>>
+> 这里引用Philip Wadler的文章 << Propositions as Types >>
 
 柯里-霍华德同构将逻辑与程序语言联系起来：
 
