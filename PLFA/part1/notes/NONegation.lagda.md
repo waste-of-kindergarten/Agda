@@ -206,7 +206,7 @@ trichotomy (suc m) (suc n) with trichotomy m n
                                     s<s (((proj₂ ∘ proj₂) x)) ⟩ ⟩
 ``` 
 
-## 练习`⊎-dual-×`(推荐)
+### 练习`⊎-dual-×`(推荐)
 
 请证明合取，析取和否定可通过以下版本的德摩根定律(De Morgan's Law)关联在一起。
 
@@ -243,7 +243,7 @@ trichotomy (suc m) (suc n) with trichotomy m n
               (inj₂ ¬b) → λ{⟨ a , b ⟩ → ¬b b}}
 ``` 
 
-## 练习`Classical`延伸
+### 练习`Classical`延伸
 
 考虑以下定律：
 
@@ -303,7 +303,7 @@ Classical₄₀ : ∀ {A : Set} → ({B : Set} → ¬ (¬ A × ¬ B) → A ⊎ B
 Classical₄₀ ¬′¬a⊎¬b′→a⊎b = ¬′¬a⊎¬b′→a⊎b λ{ ⟨ ¬a , ¬¬a ⟩ → ¬¬a ¬a}
 ``` 
 
-## 练习`Stable`(延伸)
+### 练习`Stable`(延伸)
 
 若双重否定消去对某个式子成立，我们就说它是 ***稳定(Stable)*** 的方式直接声明其成立：
 
