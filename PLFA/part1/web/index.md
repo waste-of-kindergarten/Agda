@@ -10,4 +10,6 @@
 4. [相等性与等式推理](./NOEquality.html)
 5. [同构与映射](./NOIsomorphism.html)
 6. [合取，析取与蕴涵](./NOConnectives.html)
-7. 未完待续
+7. [命题的否定](./NONegation.html)
+8. 未完待续
+
