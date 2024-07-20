@@ -11,5 +11,7 @@
 5. [同构与映射](./NOIsomorphism.html)
 6. [合取，析取与蕴涵](./NOConnectives.html)
 7. [命题的否定](./NONegation.html)
-8. 未完待续
+8. [量词](./NOQuantifiers.html)
+9. [可判定类型](./NODecidable.html)
+10. 未完待续
 
